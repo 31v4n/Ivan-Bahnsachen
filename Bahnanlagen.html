@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahnanlagen & Definitionen - Ivan Kopacz</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        railred: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#f43f5e',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-neutral-100 text-neutral-900 font-sans antialiased min-h-screen selection:bg-red-600 selection:text-white pb-20">
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center text-white font-black text-xl ">
+                    <img src="Logo.png">
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-neutral-900">Ivan Bahnsachen</h1>
+                    <p class="text-xs font-medium text-neutral-400 uppercase tracking-wider">Bahnanlagen</p>
+                </div>
+            </div>
+
+            <!-- Sleek Navigation Pills -->
+            <nav class="flex flex-wrap justify-center gap-1.5 text-xs font-semibold">
+                <a href="#bf" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Bf</a>
+                <a href="#hp" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Hp</a>
+                <a href="#hst" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Hst</a>
+                <a href="#bk" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Bk</a>
+                <a href="#uest" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Üst</a>
+                <a href="#abzw" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Abzw</a>
+                <a href="#dkst" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Dkst</a>
+                <a href="#anst" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Anst</a>
+                <a href="#awanst" class="px-3 py-1.5 bg-neutral-100 hover:bg-red-600 hover:text-white text-neutral-700 rounded-xl transition shadow-xs">Awanst</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-10 space-y-12">
+
+        <!-- Banner Intro -->
+        <div class="bg-gradient-to-r from-neutral-900 to-neutral-800 text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-2xl space-y-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-600 text-white shadow-sm">
+                    Eisenbahnbetrieb (Ril 408)
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Definitionen &amp; Merkmale der Bahnanlagen</h2>
+            </div>
+        </div>
+
+        <!-- 1. BAHNHOF (Bf) -->
+        <section id="bf" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-8">
+            <div class="flex items-center justify-between border-b border-neutral-100 pb-4">
+                <div class="flex items-center space-x-3">
+                    <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Bahnhof <span class="text-neutral-400 font-normal text-xl">(Bf)</span></h2>
+                </div>
+                <span class="text-xs font-semibold bg-neutral-100 text-neutral-600 px-3 py-1.5 rounded-full">Definition &amp; Grenzen</span>
+            </div>
+
+            <!-- Definition Box -->
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs space-y-2">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Bahnhöfe sind Bahnanlagen mit mindestens einer Weiche, wo Züge beginnen, enden, halten, kreuzen, überholen oder wenden dürfen.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs overflow-hidden">
+                    <img src="Grafiken/bahnhof.png" title="Grafik: Ivan Kopacz " alt="Bahnhof Übersicht" class="w-full h-auto rounded-xl object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x150/f5f5f5/a3a3a3?text=Grafik:+Bahnhof+(Bf)';">
+                </div>
+
+                <div class="space-y-3">
+                    <p class="text-neutral-700 font-medium">Bahnhöfe können in mehrere Bahnhofsteile unterteilt sein.</p>
+                    <p class="text-sm text-neutral-500">Bahnhofsteile können durch Zwischensignale bzw. Signale Ne 14 gegeneinander abgegrenzt sein.</p>
+                </div>
+
+                <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs overflow-hidden">
+                    <img src="Grafiken/bahnhof2.png" title="Grafik: Ivan Kopacz " alt="Bahnhofsteile" class="w-full h-auto rounded-xl object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x175/f5f5f5/a3a3a3?text=Grafik:+Bahnhofsteile';">
+                </div>
+            </div>
+
+            <!-- Gleise Unterscheidung -->
+            <div class="pt-6 space-y-6">
+                <h3 class="text-xl font-bold text-neutral-900 flex items-center gap-2">
+                    <span class="text-red-600">▪</span> Die Gleise in einem Bahnhof werden unterschieden in:
+                </h3>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-neutral-500">Durchgehende Hauptgleise</h4>
+                        <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+                            <img src="Grafiken/bahnhofgleise1.png" title="Grafik: Ivan Kopacz " alt="Durchgehende Hauptgleise" class="w-full h-auto rounded-xl object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x200/f5f5f5/a3a3a3?text=Durchgehende+Hauptgleise';">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-neutral-500">Hauptgleise</h4>
+                        <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+                            <img src="Grafiken/bahnhofgleise2.png" title="Grafik: Ivan Kopacz " alt="Hauptgleise" class="w-full h-auto rounded-xl object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x180/f5f5f5/a3a3a3?text=Hauptgleise';">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-neutral-500">Nebengleise</h4>
+                        <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+                            <img src="Grafiken/bahnhofgleise3.png" title="Grafik: Ivan Kopacz " alt="Nebengleise" class="w-full h-auto rounded-xl object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x180/f5f5f5/a3a3a3?text=Nebengleise';">
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-50 text-red-700 rounded-xl text-xs font-semibold shadow-xs">
+                            <span class="w-2 h-2 bg-red-600 rounded-full"></span>
+                            Hinweis: Nebengleise müssen keine Stumpfgleise sein!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bahnhofsgrenzen -->
+            <div class="pt-6 space-y-6">
+                <h3 class="text-xl font-bold text-neutral-900 flex items-center gap-2">
+                    <span class="text-red-600">▪</span> Wo liegen die Grenzen eines Bahnhofs?
+                </h3>
+                <p class="text-neutral-600 font-medium">Ein Bahnhof geht in der Regel von...</p>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-neutral-50 p-5 rounded-2xl shadow-xs space-y-3">
+                        <p class="text-sm font-semibold text-neutral-800">...Einfahrsignal bis zum Einfahrsignal der Gegenrichtung... <span class="text-neutral-400 font-normal">(bzw. die sie ersetzenden Signale Ne 14)</span></p>
+                        <div class="bg-white p-2 rounded-xl shadow-2xs">
+                            <img src="Grafiken/bahnhofgrenze1.png" title="Grafik: Ivan Kopacz " alt="Bahnhofsgrenze Einfahrsignal" class="w-full h-auto rounded-lg object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x175/ffffff/a3a3a3?text=Grenze:+Einfahrsignal';">
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 p-5 rounded-2xl shadow-xs space-y-3">
+                        <p class="text-sm font-semibold text-neutral-800">...Trapeztafel bis zur Trapeztafel der Gegenrichtung...</p>
+                        <div class="bg-white p-2 rounded-xl shadow-2xs">
+                            <img src="Grafiken/bahnhofgrenze2.png" title="Grafik: Ivan Kopacz " alt="Bahnhofsgrenze Trapeztafel" class="w-full h-auto rounded-lg object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x175/ffffff/a3a3a3?text=Grenze:+Trapeztafel';">
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 p-5 rounded-2xl shadow-xs space-y-3">
+                        <p class="text-sm font-semibold text-neutral-800">...Einfahrweiche bis zur Einfahrweiche der Gegenrichtung...</p>
+                        <div class="bg-white p-2 rounded-xl shadow-2xs">
+                            <img src="Grafiken/bahnhofgrenze3.png" title="Grafik: Ivan Kopacz " alt="Bahnhofsgrenze Einfahrweiche" class="w-full h-auto rounded-lg object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/900x175/ffffff/a3a3a3?text=Grenze:+Einfahrweiche';">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-neutral-900 text-white rounded-2xl text-center text-sm font-medium shadow-sm">
+                    Abweichende Grenzen können im Streckenbuch genannt sein.
+                </div>
+
+                <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+                    <img src="Grafiken/bahnhof1.png" title="Grafik: Ivan Kopacz / M. Pichler" alt="Bahnhof Komplettübersicht" class="w-full h-auto rounded-xl object-contain mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/800x400/f5f5f5/a3a3a3?text=Bahnhof+Gesamtuebersicht';">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. HALTEPUNKT (Hp) -->
+        <section id="hp" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Haltepunkt <span class="text-neutral-400 font-normal text-xl">(Hp)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Ein Haltepunkt ist eine Bahnanlage ohne Weichen.<br>
+                    <span class="text-neutral-600 font-normal text-base">Es können jedoch Züge planmäßig halten, beginnen oder enden.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+    <div class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-4 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 0 1000 350"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <defs>
+                <!-- Sehr dezenter Schatten für Züge -->
+                <filter id="train-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="3"
+                        flood-color="#000000"
+                        flood-opacity="0.16"
+                    />
+                </filter>
+
+                <!-- Bahnsteig -->
+                <linearGradient id="platformGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f8f8f8" />
+                    <stop offset="100%" stop-color="#eeeeee" />
+                </linearGradient>
+
+                <!-- Dezenter Glow für aktive Strecke -->
+                <filter id="track-glow" x="-10%" y="-100%" width="120%" height="300%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- ================================= -->
+            <!-- Gleis 1                           -->
+            <!-- ================================= -->
+
+            <line
+                x1="0"
+                y1="120"
+                x2="1000"
+                y2="120"
+                stroke="#d9d9d9"
+                stroke-width="7"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="120"
+                x2="1000"
+                y2="120"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+            <!-- ================================= -->
+            <!-- Gleis 2                           -->
+            <!-- ================================= -->
+
+            <line
+                x1="0"
+                y1="200"
+                x2="1000"
+                y2="200"
+                stroke="#d9d9d9"
+                stroke-width="7"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="200"
+                x2="1000"
+                y2="200"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+            <!-- ================================= -->
+            <!-- Bahnsteig                         -->
+            <!-- ================================= -->
+
+            <g>
+                <rect
+                    x="350"
+                    y="132"
+                    width="300"
+                    height="56"
+                    rx="8"
+                    fill="url(#platformGrad)"
+                />
+
+                <!-- Bahnsteigkante -->
+                <line
+                    x1="355"
+                    y1="136"
+                    x2="645"
+                    y2="136"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-dasharray="4 5"
+                />
+
+                <line
+                    x1="355"
+                    y1="184"
+                    x2="645"
+                    y2="184"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-dasharray="4 5"
+                />
+
+                <text
+                    x="500"
+                    y="165"
+                    fill="#1f1f1f"
+                    font-size="13"
+                    font-weight="700"
+                    text-anchor="middle"
+                    font-family="Inter, Arial, sans-serif"
+                >
+                    Bahnsteig
+                </text>
+            </g>
+
+            <!-- ================================= -->
+            <!-- Zug 1                             -->
+            <!-- ================================= -->
+
+            <g
+                transform="translate(50, 114)"
+                filter="url(#train-shadow)"
+            >
+                <!-- DB roter Zugkörper -->
+                <rect
+                    x="-21"
+                    y="-7"
+                    width="42"
+                    height="14"
+                    rx="4"
+                    fill="#ec0016"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="-15"
+                    y="-4"
+                    width="13"
+                    height="8"
+                    rx="1.5"
+                    fill="#ffffff"
+                    opacity="0.92"
+                />
+
+                <!-- Frontlicht -->
+                <circle
+                    cx="13"
+                    cy="0"
+                    r="2.5"
+                    fill="#ffffff"
+                />
+            </g>
+
+            <!-- ================================= -->
+            <!-- Zug 2                             -->
+            <!-- ================================= -->
+
+            <g
+                transform="translate(850, 194)"
+                filter="url(#train-shadow)"
+            >
+                <rect
+                    x="-21"
+                    y="-7"
+                    width="42"
+                    height="14"
+                    rx="4"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="2"
+                    y="-4"
+                    width="13"
+                    height="8"
+                    rx="1.5"
+                    fill="#ffffff"
+                    opacity="0.92"
+                />
+
+                <circle
+                    cx="-13"
+                    cy="0"
+                    r="2.5"
+                    fill="#ffffff"
+                />
+            </g>
+
+        </svg>
+    </div>
+</div>
+        </section>
+
+        <!-- 3. HALTESTELLE (Hst) -->
+        <section id="hst" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Haltestelle <span class="text-neutral-400 font-normal text-xl">(Hst)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Eine Haltestelle ist eine Abzweigstelle, Überleitstelle oder Anschlussstelle, die mit einem Haltepunkt örtlich verbunden ist.
+                </p>
+            </div>
+
+            <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+
+    <div
+        class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-3 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 0 1000 350"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <defs>
+
+                <!-- Dezenter Schatten für Züge -->
+                <filter
+                    id="train-shadow"
+                    x="-30%"
+                    y="-50%"
+                    width="160%"
+                    height="200%"
+                >
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="2.5"
+                        flood-color="#000000"
+                        flood-opacity="0.18"
+                    />
+                </filter>
+
+                <!-- Signal Glow -->
+                <filter
+                    id="glow-red"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2.5"
+                        result="blur"
+                    />
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+                <filter
+                    id="glow-green"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2.5"
+                        result="blur"
+                    />
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+                <!-- Dezenter Bahnsteig -->
+                <linearGradient
+                    id="platformGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                >
+                    <stop offset="0%" stop-color="#f7f7f7"/>
+                    <stop offset="100%" stop-color="#e7e7e7"/>
+                </linearGradient>
+
+            </defs>
+
+
+            <!-- ============================================== -->
+            <!-- GLEIS 1                                        -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="120"
+                x2="1000"
+                y2="120"
+                stroke="#d9d9d9"
+                stroke-width="7"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="120"
+                x2="1000"
+                y2="120"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- GLEIS 2                                        -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="200"
+                x2="1000"
+                y2="200"
+                stroke="#d9d9d9"
+                stroke-width="7"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="200"
+                x2="1000"
+                y2="200"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- BAHNSTEIG                                      -->
+            <!-- ============================================== -->
+
+            <g>
+
+                <rect
+                    x="180"
+                    y="132"
+                    width="300"
+                    height="56"
+                    rx="8"
+                    fill="url(#platformGrad)"
+                />
+
+                <!-- Helle Bahnsteigkanten -->
+                <line
+                    x1="185"
+                    y1="136"
+                    x2="475"
+                    y2="136"
+                    stroke="#d4d4d4"
+                    stroke-width="2"
+                />
+
+                <line
+                    x1="185"
+                    y1="184"
+                    x2="475"
+                    y2="184"
+                    stroke="#d4d4d4"
+                    stroke-width="2"
+                />
+
+                <text
+                    x="330"
+                    y="165"
+                    fill="#262626"
+                    font-size="13"
+                    font-weight="700"
+                    text-anchor="middle"
+                    font-family="Inter, Arial, sans-serif"
+                >
+                    Bahnsteig
+                </text>
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- WEICHEN                                         -->
+            <!-- ============================================== -->
+
+            <path
+                d="M 660 120 L 700 200"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+            <path
+                d="M 740 200 L 780 120"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+            <!-- Rote Weichenbereiche 
+            <path
+                d="M 660 120 L 700 200"
+                fill="none"
+                stroke="#ec0016"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+
+            <path
+                d="M 740 200 L 780 120"
+                fill="none"
+                stroke="#ec0016"
+                stroke-width="2"
+                stroke-linecap="round"
+            />-->
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 1                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig1')"
+            >
+
+                <!-- Signalarm -->
+                <rect
+                    x="550"
+                    y="93"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="560"
+                    y="93"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="545"
+                    y="92"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <!-- Signalgehäuse -->
+                <rect
+                    x="580"
+                    y="85"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <!-- Rot -->
+                <circle
+                    cx="592"
+                    cy="96"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <!-- Grün -->
+                <circle
+                    cx="610"
+                    cy="96"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 2                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig2')"
+            >
+
+                <rect
+                    x="862"
+                    y="93"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="872"
+                    y="93"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="892"
+                    y="92"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <rect
+                    x="820"
+                    y="85"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <circle
+                    cx="832"
+                    cy="96"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <circle
+                    cx="850"
+                    cy="96"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 3                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig3')"
+            >
+
+                <rect
+                    x="550"
+                    y="221"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="560"
+                    y="221"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="545"
+                    y="220"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <rect
+                    x="580"
+                    y="213"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <circle
+                    cx="592"
+                    cy="224"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <circle
+                    cx="610"
+                    cy="224"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 4                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig4')"
+            >
+
+                <rect
+                    x="862"
+                    y="221"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="872"
+                    y="221"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="892"
+                    y="220"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <rect
+                    x="820"
+                    y="213"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <circle
+                    cx="832"
+                    cy="224"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <circle
+                    cx="850"
+                    cy="224"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- ZUG LINKS                                        -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(30, 114)"
+                filter="url(#train-shadow)"
+            >
+
+                <rect
+                    x="-20"
+                    y="-7"
+                    width="40"
+                    height="14"
+                    rx="4"
+                    fill="#ec0016"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="-16"
+                    y="-4"
+                    width="12"
+                    height="8"
+                    rx="1.5"
+                    fill="#ffffff"
+                />
+
+                <!-- Frontlicht -->
+                <circle
+                    cx="13"
+                    cy="0"
+                    r="2.5"
+                    fill="#ffffff"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- ZUG RECHTS                                       -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(900, 194)"
+                filter="url(#train-shadow)"
+            >
+
+                <rect
+                    x="-20"
+                    y="-7"
+                    width="40"
+                    height="14"
+                    rx="4"
+                    fill="#ec0016"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="3"
+                    y="-4"
+                    width="12"
+                    height="8"
+                    rx="1.5"
+                    fill="#ffffff"
+                />
+
+                <!-- Frontlicht -->
+                <circle
+                    cx="-13"
+                    cy="0"
+                    r="2.5"
+                    fill="#ffffff"
+                />
+
+            </g>
+
+        </svg>
+
+    </div>
+
+</div>
+            </div>
+        </section>
+
+        <!-- 4. BLOCKSTELLE (Bk) -->
+        <section id="bk" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Blockstelle <span class="text-neutral-400 font-normal text-xl">(Bk)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs space-y-3">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Blockstellen sind Bahnanlagen, die eine Blockstrecke begrenzen.
+                </p>
+                <p class="text-sm text-neutral-600">
+                    Es gibt Blockstellen für signalgeführte Züge, für anzeigegeführte Züge und Züge in ETCS-Betriebsart SR.
+                </p>
+            </div>
+
+            <!-- Bullet Points Container -->
+            <div class="space-y-3 text-sm text-neutral-700">
+                <div class="flex items-start gap-3 p-3 bg-neutral-50 rounded-xl">
+                    <span class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></span>
+                    <p><strong class="text-neutral-900">Signalgeführte Züge:</strong> Blockstellen sind an Hauptsignalen eingerichtet.</p>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-neutral-50 rounded-xl">
+                    <span class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></span>
+                    <p><strong class="text-neutral-900">Anzeigegeführte Züge:</strong> Blockstellen sind eingerichtet an Hauptsignalen, oder als virtuelle Blockstellen.</p>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-neutral-50 rounded-xl">
+                    <span class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></span>
+                    <p><strong class="text-neutral-900">Züge in ETCS-Betriebsart SR:</strong> Blockstellen sind an Signalen Ne 14 eingerichtet.</p>
+                </div>
+            </div>
+
+            <div class="pt-2 space-y-3">
+                <h3 class="text-base font-bold text-neutral-900">Warum gibt es Blockstellen?</h3>
+                <p class="text-sm text-neutral-600">
+                    Durch die Blockstellen und Blockstrecken wird die Zugdichte auf einer Strecke erhöht.
+                </p>
+                <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+
+    <div
+        class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-3 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 0 1000 220"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <defs>
+
+                <filter
+                    id="signal-shadow"
+                    x="-50%"
+                    y="-50%"
+                    width="200%"
+                    height="200%"
+                >
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="2"
+                        flood-color="#000000"
+                        flood-opacity="0.18"
+                    />
+                </filter>
+
+                <filter
+                    id="red-glow"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2"
+                        result="blur"
+                    />
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+                <filter
+                    id="green-glow"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2"
+                        result="blur"
+                    />
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+            </defs>
+
+
+            <!-- ============================================== -->
+            <!-- GLEISE                                           -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="82"
+                x2="1000"
+                y2="82"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="138"
+                x2="1000"
+                y2="138"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- OBERES SIGNAL – X = 500                         -->
+            <!-- RICHTUNG RECHTS / GRÜN                          -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(500 82)"
+                filter="url(#signal-shadow)"
+            >
+
+                <!-- Signalarm nach links -->
+                <rect
+                    x="-38"
+                    y="-4"
+                    width="30"
+                    height="8"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="-27"
+                    y="-4"
+                    width="10"
+                    height="8"
+                    fill="#ec0016"
+                />
+
+                <!-- Halterung -->
+                <rect
+                    x="-8"
+                    y="-5"
+                    width="5"
+                    height="10"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Signalgehäuse -->
+                <rect
+                    x="0"
+                    y="-13"
+                    width="43"
+                    height="26"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <!-- Rot inaktiv -->
+                <circle
+                    cx="12"
+                    cy="0"
+                    r="4"
+                    fill="#525252"
+                />
+
+                <!-- Grün aktiv -->
+                <circle
+                    cx="31"
+                    cy="0"
+                    r="4"
+                    fill="#22c55e"
+                    filter="url(#green-glow)"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- UNTERES SIGNAL – X = 500                        -->
+            <!-- RICHTUNG LINKS / ROT                            -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(500 138)"
+                filter="url(#signal-shadow)"
+            >
+
+                <!-- Signalgehäuse -->
+                <rect
+                    x="-43"
+                    y="-13"
+                    width="43"
+                    height="26"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <!-- Rot aktiv -->
+                <circle
+                    cx="-31"
+                    cy="0"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#red-glow)"
+                />
+
+                <!-- Grün inaktiv -->
+                <circle
+                    cx="-13"
+                    cy="0"
+                    r="4"
+                    fill="#525252"
+                />
+
+                <!-- Halterung -->
+                <rect
+                    x="3"
+                    y="-5"
+                    width="5"
+                    height="10"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Signalarm nach rechts -->
+                <rect
+                    x="8"
+                    y="-4"
+                    width="30"
+                    height="8"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="17"
+                    y="-4"
+                    width="10"
+                    height="8"
+                    fill="#ec0016"
+                />
+
+            </g>
+
+        </svg>
+
+    </div>
+
+</div>
+            </div>
+
+            <!-- External Link Card ->
+            <a href="streckenblock.htm" target="_self" class="group block p-5 bg-neutral-900 hover:bg-neutral-800 text-white rounded-2xl transition shadow-md">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-base group-hover:text-red-400 transition">Weitere Information zum Thema "Blockstrecke" &rarr;</h4>
+                        <p class="text-xs text-neutral-400 mt-1">Was ist eine Blockstrecke? Inkl. Erklärung zu Selbstblocksignalen.</p>
+                    </div>
+                </div>
+            </a-->
+        </section>
+
+        <!-- 5. ÜBERLEITSTELLE (Üst) -->
+        <section id="uest" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Überleitstelle <span class="text-neutral-400 font-normal text-xl">(Üst)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Überleitstellen sind Blockstellen der freien Strecke, wo Züge auf ein anderes Gleis derselben Strecke übergehen können.
+                </p>
+            </div>
+
+            <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+
+    <div
+        class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-3 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 55 1000 200"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <defs>
+
+                <!-- Dezenter Schatten für Züge -->
+                <filter
+                    id="train-shadow"
+                    x="-30%"
+                    y="-50%"
+                    width="160%"
+                    height="200%"
+                >
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="2.5"
+                        flood-color="#000000"
+                        flood-opacity="0.18"
+                    />
+                </filter>
+
+                <!-- Signal Glow -->
+                <filter
+                    id="glow-red"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2.5"
+                        result="blur"
+                    />
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+                <filter
+                    id="glow-green"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2.5"
+                        result="blur"
+                    />
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+                <!-- Dezenter Bahnsteig -->
+                <linearGradient
+                    id="platformGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                >
+                    <stop offset="0%" stop-color="#f7f7f7"/>
+                    <stop offset="100%" stop-color="#e7e7e7"/>
+                </linearGradient>
+
+            </defs>
+
+
+            <!-- ============================================== -->
+            <!-- GLEIS 1                                        -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="120"
+                x2="1000"
+                y2="120"
+                stroke="#d9d9d9"
+                stroke-width="7"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="120"
+                x2="1000"
+                y2="120"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- GLEIS 2                                        -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="200"
+                x2="1000"
+                y2="200"
+                stroke="#d9d9d9"
+                stroke-width="7"
+                stroke-linecap="round"
+            />
+
+            <line
+                x1="0"
+                y1="200"
+                x2="1000"
+                y2="200"
+                stroke="#ec0016"
+                stroke-width="3"
+                stroke-dasharray="10 6"
+                filter="url(#track-glow)"
+            />
+
+
+
+
+            <!-- ============================================== -->
+			<!-- WEICHEN                                         -->
+			<!-- ============================================== -->
+
+			<path
+				d="M 660 120 L 700 200"
+				fill="none"
+				stroke="#525252"
+				stroke-width="5"
+				stroke-linecap="round"
+			/>
+
+			<path
+				d="M 740 200 L 780 120"
+				fill="none"
+				stroke="#525252"
+				stroke-width="5"
+				stroke-linecap="round"
+			/>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 1                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig1')"
+            >
+
+                <!-- Signalarm -->
+                <rect
+                    x="550"
+                    y="93"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="560"
+                    y="93"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="545"
+                    y="92"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <!-- Signalgehäuse -->
+                <rect
+                    x="580"
+                    y="85"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <!-- Rot -->
+                <circle
+                    cx="592"
+                    cy="96"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <!-- Grün -->
+                <circle
+                    cx="610"
+                    cy="96"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 2                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig2')"
+            >
+
+                <rect
+                    x="862"
+                    y="93"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="872"
+                    y="93"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="892"
+                    y="92"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <rect
+                    x="820"
+                    y="85"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <circle
+                    cx="832"
+                    cy="96"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <circle
+                    cx="850"
+                    cy="96"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 3                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig3')"
+            >
+
+                <rect
+                    x="550"
+                    y="221"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="560"
+                    y="221"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="545"
+                    y="220"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <rect
+                    x="580"
+                    y="213"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <circle
+                    cx="592"
+                    cy="224"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <circle
+                    cx="610"
+                    cy="224"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- SIGNAL 4                                        -->
+            <!-- ============================================== -->
+
+            <g
+                class="cursor-pointer"
+                onclick="toggleSignal('sig4')"
+            >
+
+                <rect
+                    x="862"
+                    y="221"
+                    width="30"
+                    height="6"
+                    rx="1"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <rect
+                    x="872"
+                    y="221"
+                    width="10"
+                    height="6"
+                    fill="#ec0016"
+                />
+
+                <rect
+                    x="892"
+                    y="220"
+                    width="5"
+                    height="8"
+                    rx="1"
+                    fill="#737373"
+                />
+
+
+                <rect
+                    x="820"
+                    y="213"
+                    width="42"
+                    height="22"
+                    rx="5"
+                    fill="#171717"
+                />
+
+                <circle
+                    cx="832"
+                    cy="224"
+                    r="4"
+                    fill="#ec0016"
+                    filter="url(#glow-red)"
+                />
+
+                <circle
+                    cx="850"
+                    cy="224"
+                    r="4"
+                    fill="#22c55e"
+                    opacity="0.22"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- ZUG LINKS                                        -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(30, 114)"
+                filter="url(#train-shadow)"
+            >
+
+                <rect
+                    x="-20"
+                    y="-7"
+                    width="40"
+                    height="14"
+                    rx="4"
+                    fill="#ec0016"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="-16"
+                    y="-4"
+                    width="12"
+                    height="8"
+                    rx="1.5"
+                    fill="#ffffff"
+                />
+
+                <!-- Frontlicht -->
+                <circle
+                    cx="13"
+                    cy="0"
+                    r="2.5"
+                    fill="#ffffff"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- ZUG RECHTS                                       -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(900, 194)"
+                filter="url(#train-shadow)"
+            >
+
+                <rect
+                    x="-20"
+                    y="-7"
+                    width="40"
+                    height="14"
+                    rx="4"
+                    fill="#ec0016"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="3"
+                    y="-4"
+                    width="12"
+                    height="8"
+                    rx="1.5"
+                    fill="#ffffff"
+                />
+
+                <!-- Frontlicht -->
+                <circle
+                    cx="-13"
+                    cy="0"
+                    r="2.5"
+                    fill="#ffffff"
+                />
+
+            </g>
+
+        </svg>
+
+    </div>
+
+</div>
+
+            <p class="text-xs text-neutral-500 font-medium">Eine Überleitstelle wird durch Blocksignale begrenzt.</p>
+        </section>
+
+        <!-- 6. ABZWEIGSTELLE (Abzw) -->
+        <section id="abzw" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Abzweigstelle <span class="text-neutral-400 font-normal text-xl">(Abzw)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs space-y-2">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Abzweigstellen sind Blockstellen der freien Strecke, wo Züge von einer Strecke auf eine andere Strecke übergehen können.
+                </p>
+                <p class="text-sm text-neutral-500">Eine Abzweigstelle wird durch ihre Blocksignale bzw. Signale Ne 14 begrenzt.</p>
+            </div>
+
+            <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+
+    <div
+        class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-3 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 0 1000 220"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <defs>
+
+                <!-- Dezenter Schatten -->
+                <filter
+                    id="train-shadow"
+                    x="-40%"
+                    y="-40%"
+                    width="180%"
+                    height="180%"
+                >
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="2.5"
+                        flood-color="#000000"
+                        flood-opacity="0.18"
+                    />
+                </filter>
+
+                <!-- Rotes Signallicht -->
+                <filter
+                    id="signal-red"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2"
+                        result="blur"
+                    />
+
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+            </defs>
+
+
+            <!-- ================================================= -->
+            <!-- GLEISE                                             -->
+            <!-- ================================================= -->
+
+            <!-- Oberes Gleis -->
+            <line
+                x1="0"
+                y1="62"
+                x2="1000"
+                y2="62"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+            <!-- Unteres Gleis -->
+            <line
+                x1="0"
+                y1="95"
+                x2="1000"
+                y2="95"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ================================================= -->
+            <!-- WEICHE / ABZWEIGUNG                                -->
+            <!-- ================================================= -->
+
+            <!-- Oberer Abzweig nach unten -->
+            <path
+                d="M 430 62
+                   L 510 140
+                   L 510 220"
+                fill="none"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+            <!-- Zweiter paralleler Strang -->
+            <path
+                d="M 390 95
+                   L 465 170
+                   L 465 220"
+                fill="none"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+
+            <!-- ================================================= -->
+            <!-- ZUG OBEN                                           -->
+            <!-- ================================================= -->
+
+            <g
+                transform="translate(555 62)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Lok -->
+                <rect
+                    x="-20"
+                    y="-11"
+                    width="39"
+                    height="22"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- kleines rotes Signal/Licht -->
+                <circle
+                    cx="-12"
+                    cy="0"
+                    r="2.8"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="-5"
+                    y="-6"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <rect
+                    x="-5"
+                    y="1"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Kupplung -->
+                <rect
+                    x="19"
+                    y="-2"
+                    width="6"
+                    height="4"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Wagen -->
+                <rect
+                    x="25"
+                    y="-5"
+                    width="39"
+                    height="10"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- Roter DB-Streifen -->
+                <rect
+                    x="28"
+                    y="-2"
+                    width="30"
+                    height="3"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Wagenende -->
+                <rect
+                    x="64"
+                    y="-3"
+                    width="5"
+                    height="6"
+                    fill="#737373"
+                />
+
+            </g>
+
+
+            <!-- ================================================= -->
+            <!-- ZUG AUF UNTEREM GLEIS                             -->
+            <!-- ================================================= -->
+
+            <g
+                transform="translate(335 95)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Wagen -->
+                <rect
+                    x="-45"
+                    y="-5"
+                    width="39"
+                    height="10"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- roter Streifen -->
+                <rect
+                    x="-42"
+                    y="-2"
+                    width="30"
+                    height="3"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Kupplung -->
+                <rect
+                    x="-6"
+                    y="-2"
+                    width="6"
+                    height="4"
+                    fill="#737373"
+                />
+
+                <!-- Lok -->
+                <rect
+                    x="0"
+                    y="-11"
+                    width="39"
+                    height="22"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- rotes Licht -->
+                <circle
+                    cx="27"
+                    cy="0"
+                    r="2.8"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="10"
+                    y="-6"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <rect
+                    x="10"
+                    y="1"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+            </g>
+
+
+            <!-- ================================================= -->
+            <!-- SIGNAL / ZUG AM ABZWEIG                           -->
+            <!-- ================================================= -->
+
+            <g
+                transform="translate(480 150)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Schwarzer Zugkörper -->
+                <rect
+                    x="-10"
+                    y="-24"
+                    width="20"
+                    height="39"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- Rotes Licht oben -->
+                <circle
+                    cx="0"
+                    cy="-13"
+                    r="3"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="-5"
+                    y="-4"
+                    width="10"
+                    height="7"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Zweites Licht -->
+                <circle
+                    cx="0"
+                    cy="8"
+                    r="2.5"
+                    fill="#737373"
+                />
+
+                <!-- Kupplung nach unten -->
+                <rect
+                    x="-2"
+                    y="15"
+                    width="4"
+                    height="6"
+                    fill="#737373"
+                />
+
+            </g>
+
+
+            <!-- ================================================= -->
+            <!-- VERTIKALER WAGEN                                   -->
+            <!-- ================================================= -->
+
+            <g
+                transform="translate(480 195)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Wagenkörper -->
+                <rect
+                    x="-5"
+                    y="-22"
+                    width="10"
+                    height="42"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- DB-Roter Streifen -->
+                <rect
+                    x="-2"
+                    y="-18"
+                    width="4"
+                    height="31"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Wagenabschluss -->
+                <rect
+                    x="-4"
+                    y="-22"
+                    width="8"
+                    height="3"
+                    rx="1"
+                    fill="#737373"
+                />
+
+            </g>
+
+        </svg>
+
+    </div>
+
+</div>
+        </section>
+
+        <!-- 7. DECKUNGSSTELLE (Dkst) -->
+        <section id="dkst" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Deckungsstelle <span class="text-neutral-400 font-normal text-xl">(Dkst)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Deckungsstellen sind Bahnanlagen der freien Strecke, die den Bahnbetrieb insbesondere an beweglichen Brücken, Kreuzungen von Bahnen, Gleisverschlingungen oder Baustellen sichern.
+                </p>
+            </div>
+
+            <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs text-center space-y-2">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Gauntlet_tracks_sketch.svg/3840px-Gauntlet_tracks_sketch.svg.png?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" title="Grafik: Von Sarang - Eigenes Werk, basierend auf: Gantlet rough sketch penpen.png von Penpen, Gemeinfrei, https://commons.wikimedia.org/w/index.php?curid=107230210" alt="Deckungsstelle">
+                <span class="text-xs text-neutral-400 font-medium italic block">Grafik: Von Sarang - Eigenes Werk, basierend auf: Gantlet rough sketch penpen.png von Penpen, Gemeinfrei, https://commons.wikimedia.org/w/index.php?curid=107230210</span>
+            </div>
+        </section>
+
+        <!-- 8. ANSCHLUSSSTELLE (Anst) -->
+        <section id="anst" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Anschlussstelle <span class="text-neutral-400 font-normal text-xl">(Anst)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Eine Anschlussstelle ist eine Bahnanlage der freien Strecke, wo Züge ein angeschlossenes Gleis als Rangierfahrt befahren können.
+                </p>
+            </div>
+
+            <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+
+    <div
+        class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-3 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 0 1000 180"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <defs>
+
+                <!-- Dezenter Drop Shadow -->
+                <filter
+                    id="train-shadow"
+                    x="-40%"
+                    y="-40%"
+                    width="180%"
+                    height="180%"
+                >
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="2.5"
+                        flood-color="#000000"
+                        flood-opacity="0.18"
+                    />
+                </filter>
+
+                <!-- Dezenter roter Signal-Glow -->
+                <filter
+                    id="signal-red"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2"
+                        result="blur"
+                    />
+
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+            </defs>
+
+
+            <!-- ================================================= -->
+            <!-- OBERES GLEIS                                      -->
+            <!-- ================================================= -->
+
+            <line
+                x1="0"
+                y1="48"
+                x2="1000"
+                y2="48"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ================================================= -->
+            <!-- UNTERES GLEIS                                     -->
+            <!-- ================================================= -->
+
+            <line
+                x1="0"
+                y1="84"
+                x2="1000"
+                y2="84"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ================================================= -->
+            <!-- ABZWEIGUNG                                        -->
+            <!-- ================================================= -->
+
+            <path
+                d="M 290 84
+                   L 325 120
+                   L 760 120"
+                fill="none"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+
+            <!-- ================================================= -->
+            <!-- ENDPUNKT / PRELLBOCK                              -->
+            <!-- ================================================= -->
+
+            <line
+                x1="760"
+                y1="113"
+                x2="760"
+                y2="127"
+                stroke="#171717"
+                stroke-width="4"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ================================================= -->
+            <!-- ZUG AUF OBEREM GLEIS                              -->
+            <!-- ================================================= -->
+
+            <g
+                transform="translate(370 48)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Lok -->
+                <rect
+                    x="-20"
+                    y="-11"
+                    width="38"
+                    height="22"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- rotes Licht -->
+                <circle
+                    cx="-9"
+                    cy="0"
+                    r="2.8"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- kleines Fenster -->
+                <rect
+                    x="3"
+                    y="-6"
+                    width="7"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Kupplung -->
+                <rect
+                    x="18"
+                    y="-2"
+                    width="6"
+                    height="4"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Wagen -->
+                <rect
+                    x="24"
+                    y="-5"
+                    width="38"
+                    height="10"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- roter DB-Streifen -->
+                <rect
+                    x="27"
+                    y="-2"
+                    width="28"
+                    height="3"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Wagenende -->
+                <rect
+                    x="62"
+                    y="-3"
+                    width="5"
+                    height="6"
+                    fill="#737373"
+                />
+
+            </g>
+
+
+            <!-- ================================================= -->
+            <!-- ZUG AUF UNTEREM GLEIS                             -->
+            <!-- ================================================= -->
+
+            <g
+                transform="translate(145 84)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Wagen -->
+                <rect
+                    x="-45"
+                    y="-5"
+                    width="39"
+                    height="10"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- roter Streifen -->
+                <rect
+                    x="-42"
+                    y="-2"
+                    width="29"
+                    height="3"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Kupplung -->
+                <rect
+                    x="-6"
+                    y="-2"
+                    width="6"
+                    height="4"
+                    fill="#737373"
+                />
+
+                <!-- Lok -->
+                <rect
+                    x="0"
+                    y="-11"
+                    width="39"
+                    height="22"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- rotes Licht -->
+                <circle
+                    cx="27"
+                    cy="0"
+                    r="2.8"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="9"
+                    y="-6"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <rect
+                    x="9"
+                    y="1"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+            </g>
+
+        </svg>
+
+    </div>
+
+</div>
+
+            <div class="bg-red-50 p-6 rounded-2xl space-y-2">
+                <h3 class="text-sm font-extrabold text-red-600 uppercase tracking-wider">Wichtig zur Anschlussstelle:</h3>
+                <p class="text-sm text-neutral-800 leading-relaxed">
+                    Bei einer Anst wird der Sperrfahrt der Weichenschlüssel übergeben. Von diesem Zeitpunkt an gilt diese Weiche als <strong>"nicht mehr überwacht"</strong> und das Streckengleis bleibt für den Zugverkehr gesperrt. Dies gilt solange, bis die Sperrfahrt zurückgekehrt ist und den Schlüssel wieder übergeben hat.
+                </p>
+            </div>
+        </section>
+
+        <!-- 9. AUSWEICHANSCHLUSSSTELLE (Awanst) -->
+        <section id="awanst" class="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-10 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-neutral-100 pb-4">
+                <span class="w-3 h-8 bg-red-600 rounded-full inline-block"></span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Ausweichanschlussstelle <span class="text-neutral-400 font-normal text-xl">(Awanst)</span></h2>
+            </div>
+
+            <div class="bg-neutral-50 p-6 rounded-2xl shadow-xs">
+                <p class="text-lg font-semibold text-neutral-900 leading-relaxed">
+                    Eine Ausweichanschlussstelle ist eine Bahnanlage der freien Strecke, wo Züge ein angeschlossenes Gleis als Rangierfahrt befahren können.
+                </p>
+            </div>
+
+            <div class="bg-neutral-50 p-3 rounded-2xl shadow-xs">
+
+    <div
+        class="w-full h-[320px] sm:h-[380px] bg-white rounded-2xl relative flex items-center justify-center p-3 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+    >
+
+        <svg
+            id="trackSvg"
+            class="w-full h-full"
+            viewBox="0 0 1000 180"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <defs>
+
+                <!-- Dezenter Drop Shadow -->
+                <filter
+                    id="train-shadow"
+                    x="-40%"
+                    y="-40%"
+                    width="180%"
+                    height="180%"
+                >
+                    <feDropShadow
+                        dx="0"
+                        dy="2"
+                        stdDeviation="2.5"
+                        flood-color="#000000"
+                        flood-opacity="0.18"
+                    />
+                </filter>
+
+                <!-- Dezenter roter Signal-Glow -->
+                <filter
+                    id="signal-red"
+                    x="-100%"
+                    y="-100%"
+                    width="300%"
+                    height="300%"
+                >
+                    <feGaussianBlur
+                        stdDeviation="2"
+                        result="blur"
+                    />
+
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+
+            </defs>
+
+
+            <!-- ============================================== -->
+            <!-- OBERES GLEIS                                   -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="48"
+                x2="1000"
+                y2="48"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- UNTERES GLEIS                                  -->
+            <!-- ============================================== -->
+
+            <line
+                x1="0"
+                y1="84"
+                x2="1000"
+                y2="84"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- ABZWEIGUNG                                     -->
+            <!-- ============================================== -->
+
+            <path
+                d="M 290 84
+                   L 325 120
+                   L 760 120"
+                fill="none"
+                stroke="#525252"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- GLEISSPERRE                                    -->
+            <!-- ============================================== -->
+
+            <!-- Sperrbalken -->
+            <rect
+                x="348"
+                y="111"
+                width="6"
+                height="20"
+                rx="2"
+                fill="#171717"
+            />
+
+            <!-- kleiner roter Sperrpunkt -->
+            <circle
+                cx="351"
+                cy="109"
+                r="2.5"
+                fill="#ec0016"
+            />
+
+            <!-- Beschriftung -->
+            <text
+                x="351"
+                y="153"
+                text-anchor="middle"
+                fill="#171717"
+                font-size="15"
+                font-weight="500"
+                font-family="Inter, Arial, sans-serif"
+            >
+                (Gleissperre)
+            </text>
+
+
+            <!-- ============================================== -->
+            <!-- ENDPUNKT / PRELLBOCK                            -->
+            <!-- ============================================== -->
+
+            <line
+                x1="760"
+                y1="113"
+                x2="760"
+                y2="127"
+                stroke="#171717"
+                stroke-width="4"
+                stroke-linecap="round"
+            />
+
+
+            <!-- ============================================== -->
+            <!-- ZUG AUF OBEREM GLEIS                           -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(370 48)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Lok -->
+                <rect
+                    x="-20"
+                    y="-11"
+                    width="38"
+                    height="22"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- rotes Licht -->
+                <circle
+                    cx="-9"
+                    cy="0"
+                    r="2.8"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="3"
+                    y="-6"
+                    width="7"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Kupplung -->
+                <rect
+                    x="18"
+                    y="-2"
+                    width="6"
+                    height="4"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <!-- Wagen -->
+                <rect
+                    x="24"
+                    y="-5"
+                    width="38"
+                    height="10"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- roter DB-Streifen -->
+                <rect
+                    x="27"
+                    y="-2"
+                    width="28"
+                    height="3"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Wagenende -->
+                <rect
+                    x="62"
+                    y="-3"
+                    width="5"
+                    height="6"
+                    fill="#737373"
+                />
+
+            </g>
+
+
+            <!-- ============================================== -->
+            <!-- ZUG AUF UNTEREM GLEIS                         -->
+            <!-- ============================================== -->
+
+            <g
+                transform="translate(145 84)"
+                filter="url(#train-shadow)"
+            >
+
+                <!-- Wagen -->
+                <rect
+                    x="-45"
+                    y="-5"
+                    width="39"
+                    height="10"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#171717"
+                    stroke-width="1"
+                />
+
+                <!-- roter Streifen -->
+                <rect
+                    x="-42"
+                    y="-2"
+                    width="29"
+                    height="3"
+                    rx="1"
+                    fill="#ec0016"
+                />
+
+                <!-- Kupplung -->
+                <rect
+                    x="-6"
+                    y="-2"
+                    width="6"
+                    height="4"
+                    fill="#737373"
+                />
+
+                <!-- Lok -->
+                <rect
+                    x="0"
+                    y="-11"
+                    width="39"
+                    height="22"
+                    rx="2"
+                    fill="#171717"
+                />
+
+                <!-- rotes Licht -->
+                <circle
+                    cx="27"
+                    cy="0"
+                    r="2.8"
+                    fill="#ec0016"
+                    filter="url(#signal-red)"
+                />
+
+                <!-- Fenster -->
+                <rect
+                    x="9"
+                    y="-6"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+                <rect
+                    x="9"
+                    y="1"
+                    width="8"
+                    height="5"
+                    rx="1"
+                    fill="#737373"
+                />
+
+            </g>
+
+        </svg>
+
+    </div>
+
+</div>
+
+            <div class="bg-neutral-900 text-white p-6 rounded-2xl space-y-2 shadow-sm">
+                <h3 class="text-sm font-extrabold text-red-500 uppercase tracking-wider">Wichtig zur Ausweichanschlussstelle:</h3>
+                <p class="text-sm text-neutral-300 leading-relaxed">
+                    Der Fahrdienstleiter erhält eine sichere signaltechnische Rückmeldung, dass die Fahrt im Anschluss eingeschlossen und das Streckengleis frei von Fahrzeugen ist. Das Streckengleis kann somit <strong class="text-white">wieder für Fahrten freigegeben werden</strong>.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 border-t border-neutral-200 pt-8 text-center text-xs text-neutral-400">
+        <div class="max-w-5xl mx-auto px-4 space-y-2">
+            <p class="font-medium text-neutral-600">Ivan Bahnsachen – Bahnanlagen &amp; Eisenbahnbetrieb</p>
+            <p>Grafiken &amp; Inhalte: Ivan Kopacz</p>
+        </div>
+    </footer>
+
+</body>
+</html>
