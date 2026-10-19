@@ -61,7 +61,7 @@
   @keyframes streakSweep{0%{transform:translateX(12%) rotate(-28deg);opacity:.25}50%{opacity:.9}100%{transform:translateX(-14%) rotate(-28deg);opacity:.45}}
   @keyframes copyFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
   .eyebrow{display:flex;align-items:center;gap:13px;color:#f1f1f1;font-size:clamp(12px,1.05vw,16px);letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:25px}
-  .eyebrow::before{content:"";height:4px;width:38px;background:var(--red);box-shadow:0 0 18px #e3000b80}
+  .eyebrow::before{content:"";height:4px;width:20px;background:var(--red);box-shadow:0 0 18px #e3000b80}
   h1,h2,p{margin:0}
   h1{font-size:clamp(60px,8.7vw,150px);line-height:.84;letter-spacing:-.075em;font-weight:900;text-transform:uppercase}
   h2{font-size:clamp(48px,6.2vw,104px);line-height:.91;letter-spacing:-.065em;font-weight:900;text-transform:uppercase}
@@ -119,7 +119,7 @@
   .red-wipe.go{animation:wipe .75s var(--ease)}
   @keyframes wipe{0%{transform:scaleX(0);transform-origin:left}45%{transform:scaleX(1);transform-origin:left}55%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
   .streak{position:absolute;z-index:0;width:45vw;height:2px;right:0;top:28%;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:.7;transform:rotate(-28deg);filter:blur(1px)}
-  .chapter{position:absolute;right:4.2vw;top:50%;writing-mode:vertical-rl;transform:translateY(-50%);font-size:10px;letter-spacing:.28em;color:#777;font-weight:bold}
+  .chapter{position:absolute;right:4.2vw;top:50%;writing-mode:vertical-rl;transform:translateY(-50%);font-size:10px;letter-spacing:.28em;color:#777;font-weight:bold;display:none;}
   .full{display:grid;place-items:center}
   .full .copy{max-width:1150px}
   .full .photo{height:min(52vh,520px);margin-top:35px}
@@ -177,7 +177,7 @@
 <div class="deck" id="deck">
   <header class="topbar">
     <div class="brand"><span class="brand-mark">DB</span><span>BAHNHOF<span class="red">.</span><small>STUTTGART · BAD CANNSTATT</small></span></div>
-    <div class="top-right"><span class="status"><i class="live-dot"></i>INFRASTRUKTUR IM FOKUS</span><span id="topCount">01 / 09</span></div>
+    <div class="top-right"><span class="status"><i class="live-dot"></i>Timo, Ivan, Lars, Liam</span><span id="topCount">09</span></div>
   </header>
   <div class="red-wipe" id="wipe"></div>
   <main class="slides" id="slides">
@@ -193,7 +193,7 @@
     </section>
 
     <section class="slide" data-title="Züge">
-      <div class="copy"><div class="eyebrow">01 / Zugverkehr</div><h2>VIER ZUGWELTEN.<br><span class="red">EIN BAHNHOF.</span></h2>
+      <div class="copy"><div class="eyebrow">Zugverkehr</div><h2>VIER ZUGWELTEN.<br><span class="red">EIN BAHNHOF.</span></h2>
         <p class="lead">Vom dichten S-Bahn-Takt bis zum schnellen Fernverkehr.</p>
         <p class="subline">Bad Cannstatt ist Durchgangsstation, Umsteigepunkt und Teil eines stark befahrenen Eisenbahnkorridors.</p>
         <div class="tagrow"><span class="tag">S-BAHN</span><span class="tag">ICE</span><span class="tag">IRE</span><span class="tag">RE</span></div>
@@ -202,7 +202,7 @@
     </section>
 
     <section class="slide" data-title="S-Bahn">
-      <div class="copy"><div class="eyebrow">02 / Nahverkehr</div><h2>DER TAKT<br><span class="red">DER STADT.</span></h2>
+      <div class="copy"><div class="eyebrow">Nahverkehr</div><h2>DER TAKT<br><span class="red">DER STADT.</span></h2>
         <p class="lead">S-Bahn Stuttgart</p>
         <p class="subline">Viele Fahrten, kurze Haltezeiten und ein eng abgestimmter Betriebsablauf. Hier zählt jede freie Fahrstraße.</p>
         <div class="tagrow"><span class="tag">DICHTER TAKT</span><span class="tag">KURZE HALTE</span><span class="tag">KNOTENPUNKT</span></div>
@@ -211,7 +211,7 @@
     </section>
 
     <section class="slide" data-title="ICE / IRE / RE">
-      <div class="copy"><div class="eyebrow">03 / Regional- & Fernverkehr</div><h2>SCHNELLER.<br><span class="red">WEITER.</span></h2>
+      <div class="copy"><div class="eyebrow">Regional- & Fernverkehr</div><h2>SCHNELLER.<br><span class="red">WEITER.</span></h2>
         <p class="lead">ICE · IRE · RE</p>
         <p class="subline">Fern- und Regionalzüge verbinden Stuttgart mit der Region und darüber hinaus. Nicht jeder Zug hält – manche passieren den Bahnhof ohne planmäßigen Halt.</p>
         <div class="tagrow"><span class="tag">FERNVERKEHR</span><span class="tag">REGIONAL-EXPRESS</span><span class="tag">DURCHFAHRT</span></div>
@@ -220,7 +220,7 @@
     </section>
 
     <section class="slide" data-title="H/V-Signale">
-      <div class="copy"><div class="eyebrow">04 / Signaltechnik</div><h2>LICHTER,<br><span class="red">DIE LENKEN.</span></h2>
+      <div class="copy"><div class="eyebrow">Signaltechnik</div><h2>LICHTER,<br><span class="red">DIE LENKEN.</span></h2>
         <p class="lead">H/V-Signale: Fahrt, Halt und Ankündigung.</p>
         <p class="subline">Hauptsignale sichern Zugfahrten. Vorsignale kündigen an, welcher Signalbegriff am nächsten Hauptsignal zu erwarten ist. Entscheidend ist immer das gültige Signalbild.</p>
         <div class="tagrow"><span class="tag">HAUPTSIGNAL</span><span class="tag">VORSIGNAL</span><span class="tag">SIGNALBILD</span></div>
@@ -229,7 +229,7 @@
     </section>
 
     <section class="slide" data-title="Ausgekreuzte Signale">
-      <div class="copy"><div class="eyebrow">05 / Außer Betrieb?</div><h2>NICHT JEDES<br><span class="red">SIGNAL GILT.</span></h2>
+      <div class="copy"><div class="eyebrow">Außer Betrieb?</div><h2>NICHT JEDES<br><span class="red">SIGNAL GILT.</span></h2>
         <p class="lead">Ausgekreuzt. Abgedeckt. Außer Betrieb.</p>
         <p class="subline">Ein ausgekreuztes oder abgedecktes Signal kann auf eine vorübergehende oder dauerhafte Außerbetriebnahme hinweisen. Welche Bedeutung gilt, ergibt sich aus den betrieblichen Regeln und der konkreten Kennzeichnung – nicht allein aus dem Aussehen.</p>
         <div class="tagrow"><span class="tag">BESTAND</span><span class="tag">UMBAU</span><span class="tag">AUSSER BETRIEB</span></div>
@@ -238,7 +238,7 @@
     </section>
 
     <section class="slide" data-title="Zusatzsignale">
-      <div class="copy"><div class="eyebrow">06 / Zusatzeinrichtungen</div><h2>KLEINE TAFELN.<br><span class="red">KLARE AUFGABE.</span></h2>
+      <div class="copy"><div class="eyebrow">Zusatzeinrichtungen</div><h2>KLEINE TAFELN.<br><span class="red">KLARE AUFGABE.</span></h2>
         <p class="lead">Ne 5 · Fahrtanzeiger · El 6</p>
         <p class="subline"><b>Ne 5:</b> Haltetafel für Zugpersonal.<br><b>Fahrtanzeiger:</b> zeigt die zugbezogene Abfahrbereitschaft beziehungsweise Abfahrtinformation gemäß örtlicher Ausrüstung.<br><b>El 6:</b> Halt für elektrisch angetriebene Triebfahrzeuge vor einer anschließenden Schutzstrecke beziehungsweise einem nicht elektrisch befahrbaren Fahrweg, entsprechend der konkreten Ausführung.</p>
         <div class="tagrow"><span class="tag">NE 5</span><span class="tag">FAHRTANZEIGER</span><span class="tag">EL 6</span></div>
@@ -247,7 +247,7 @@
     </section>
 
     <section class="slide" data-title="Stellwerk & Technik">
-      <div class="copy"><div class="eyebrow">07 / Hinter den Kulissen</div><h2>UNSICHTBAR.<br><span class="red">ENTSCHEIDEND.</span></h2>
+      <div class="copy"><div class="eyebrow">Hinter den Kulissen</div><h2>UNSICHTBAR.<br><span class="red">ENTSCHEIDEND.</span></h2>
         <p class="lead">Stellwerk und technische Einrichtungen</p>
         <p class="subline">Stellwerkstechnik stellt Fahrstraßen ein, steuert Weichen und Signale und überwacht deren sichere Lage. Kabel, Antriebe, Schaltschränke und Signaltechnik bilden die technische Grundlage des Bahnbetriebs.</p>
         <div class="tagrow"><span class="tag">STELLWERK</span><span class="tag">WEICHEN</span><span class="tag">KABEL & ANTRIEBE</span></div>
@@ -256,7 +256,7 @@
     </section>
 
     <section class="slide" data-title="Baustellen">
-      <div class="copy"><div class="eyebrow">08 / Veränderung im Netz</div><h2>BAUEN.<br><span class="red">UMSCHALTEN.</span></h2>
+      <div class="copy"><div class="eyebrow">Veränderung im Netz</div><h2>BAUEN.<br><span class="red">UMSCHALTEN.</span></h2>
         <p class="lead">Baustellen verändern den Betrieb.</p>
         <p class="subline">Erneuerungen an Gleisen, Weichen, Signalen und Kabelanlagen können Ersatzsignale, abgedeckte Signale, geänderte Fahrwege und zeitweise Einschränkungen mit sich bringen.</p>
         <div class="tagrow"><span class="tag">GLEISBAU</span><span class="tag">SIGNALUMBAU</span><span class="tag">BAUPHASE</span></div>
@@ -274,9 +274,8 @@
     </section>
   </main>
   <footer class="bottom">
-    <div class="count" id="count">01 <span style="color:#777">/ 10</span></div>
+    <div class="count" id="count" style="display:none;">01 <span style="color:#777;">/ 10</span></div>
     <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
-    <span class="keyhint">← → NAVIGIEREN</span>
     <div class="controls">
       <button class="control" id="prev" aria-label="Vorherige Folie" title="Vorherige Folie">←</button>
       <button class="control" id="next" aria-label="Nächste Folie" title="Nächste Folie">→</button>
