@@ -1,0 +1,293 @@
+/* Grundlegendes Styling */
+body {
+    background-color: #f8fafc;
+    font-size: 100.01%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    padding: 1rem 0;
+}
+
+li {
+    padding-bottom: 0.75rem;
+}
+
+h1, h2, div {
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:link, a:visited {
+    color: #1e3a8a;
+}
+
+a:focus, a:hover, a:active {
+    color: #ea580c;
+}
+
+a.nav:link, a.nav:visited, a.navBlack:link, a.navBlack:visited, a.navBlack:active {
+    color: #1e3a8a;
+}
+
+a.nav:focus, a.nav:hover, a.nav:active, a.navBlack:focus, a.navBlack:hover {
+    color: #ea580c;
+}
+
+#clear {
+    clear: both;
+}
+
+#level2 {
+    background-color: transparent;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 0;
+}
+
+/* Personalisiertes Creator-Banner von Ivan */
+.creator-banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+}
+
+.creator-info h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.creator-info span {
+    color: #f97316; /* Knalliges Orange für Ivans Namen */
+}
+
+.creator-tag {
+    background-color: #ea580c;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hauptinhalt & Container */
+#content_2022 {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.08), 0 8px 10px -6px rgba(30, 58, 138, 0.05);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.jnheader h1 {
+    font-size: 1.4rem;
+    color: #1e3a8a;
+    border-bottom: 2px solid #ffedd5;
+    padding-bottom: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.jnenbez {
+    color: #ea580c;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.jnentitel {
+    color: #0f172a;
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+#paddingLR12 {
+    padding: 0;
+}
+
+.jurAbsatz {
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+}
+
+/* Nummerierungen in Paragraphen */
+dl {
+    margin: 0.75rem 0 0.75rem 1.5rem;
+    background-color: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+dt {
+    font-weight: bold;
+    color: #ea580c;
+    float: left;
+    clear: left;
+    margin-right: 0.5rem;
+}
+
+dd {
+    margin-bottom: 0.5rem;
+}
+
+/* Blättern-Leiste */
+#blaettercontainer_2022 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+#blaettern_zurueck a, #blaettern_weiter a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1e3a8a;
+    color: #ffffff !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#blaettern_zurueck a:hover, #blaettern_weiter a:hover {
+    background-color: #ea580c;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* Alte GIF-Bilder ausblenden */
+#blaettern_zurueck img, #blaettern_weiter img {
+    display: none; 
+}
+
+/* Fußzeile */
+#fusszeile {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.footerul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footerul a {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.footerul a:hover {
+    color: #ea580c;
+}
+
+/*Tabellen*/
+
+/* Ergänzungen für Tabellendarstellung und Hinweise (Anlage / Fundstelle) */
+table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    margin-top: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.05);
+    border: none !important;
+}
+
+table th, table td {
+    padding: 1rem 1.25rem;
+    border: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+table th {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.kommentar_Fundstelle {
+    background-color: #ffedd5;
+    color: #9a3412;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+
+/* Styling für weggefallene Paragraphen (deutlich sichtbar, aber ausgegraut) */
+tr.weggefallen {
+    background-color: #f1f5f9;
+}
+
+tr.weggefallen td {
+    opacity: 0.6;
+}
+
+.status-weggefallen {
+    color: #64748b;
+    font-style: italic;
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+}
