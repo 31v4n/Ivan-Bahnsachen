@@ -153,18 +153,26 @@ dl {
     background-color: #f8fafc;
     padding: 1rem;
     border-radius: 8px;
+    box-sizing: border-box; /* Wichtig, damit Padding nicht übersteht */
 }
 
 dt {
     font-weight: bold;
     color: #ea580c;
-    float: left;
+    float: left;        /* Wir behalten dein float bei */
     clear: left;
     margin-right: 0.5rem;
 }
 
 dd {
     margin-bottom: 0.5rem;
+    margin-left: 0;     /* Verhindert den automatischen Einzug von dd */
+    overflow: hidden;   /* Zwingt das dd-Element, sauber neben dem float zu bleiben */
+}
+
+/* Das div im dd sorgt dafür, dass der Text in der Zeile bleibt */
+dd div {
+    display: inline;
 }
 
 /* Blättern-Leiste */
