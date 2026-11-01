@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const banner = createEl("div", "creator-banner", "", [
     createEl("div", "creator-info", "", [
-      createEl("h2", "", "Gesetzestexte lesefreundlich gestaltet ", [
-        createEl("span", "", "von Ivan"),
+      createEl("h2", "", "Eisenbahnrecht in ", [
+        createEl("span", "", "cleanem Look"),
       ]),
     ]),
     createEl("div", "creator-tag", "Ivans Bahnsachen"),
