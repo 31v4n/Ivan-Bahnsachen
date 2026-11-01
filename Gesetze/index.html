@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eisenbahnrecht – Gesetzesübersicht | Ivans Bahnsachen</title>
+
+    <link rel="stylesheet" href="aeg.css">
+
+    <style>
+        /* Ergänzungen für die Gesetzesübersicht */
+
+        .uebersicht-intro {
+            margin-bottom: 2rem;
+        }
+
+        .uebersicht-intro p {
+            color: #64748b;
+        }
+
+        .gesetzsuche {
+            display: flex;
+            gap: 0.75rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .gesetzsuche input {
+            flex: 1;
+            min-width: 0;
+            padding: 0.9rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+            background: #f8fafc;
+        }
+
+        .gesetzsuche input:focus {
+            outline: 2px solid #1e3a8a;
+            outline-offset: 2px;
+        }
+
+        .gesetz-kategorie {
+            margin-bottom: 2.5rem;
+        }
+
+        .gesetz-kategorie h2 {
+            font-size: 1.15rem;
+            color: #1e3a8a;
+            border-bottom: 2px solid #ffedd5;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .gesetz-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .gesetz-card {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .gesetz-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 58, 138, 0.08);
+        }
+
+        .gesetz-abkuerzung {
+            color: #ea580c;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gesetz-card h3 {
+            font-size: 1.05rem;
+            color: #0f172a;
+            margin: 0.4rem 0;
+        }
+
+        .gesetz-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin: 0 0 1rem;
+        }
+
+        .gesetz-link {
+            margin-top: auto;
+            font-weight: 600;
+        }
+
+        .gesetz-link::after {
+            content: " →";
+        }
+
+        .gesetz-hinweis {
+            background: #ffedd5;
+            color: #9a3412;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .keine-treffer {
+            display: none;
+            color: #64748b;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 650px) {
+            #container {
+                padding: 1.25rem;
+            }
+
+            .gesetz-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .creator-banner {
+                padding: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gesetzsuche {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="level2">
+
+    <!-- Creator-Banner -->
+    <div class="creator-banner">
+        <div class="creator-info">
+            <h2>Ivans <span>Bahnsachen</span></h2>
+            <div>Wissenswertes rund um die Eisenbahn</div>
+        </div>
+
+        <span class="creator-tag">Eisenbahnrecht</span>
+    </div>
+
+    <!-- Hauptinhalt -->
+    <div id="container">
+
+        <div class="jnheader">
+            <h1>Eisenbahnrecht – Gesetzesübersicht</h1>
+        </div>
+
+        <div class="uebersicht-intro">
+            <p>
+                Hier findest du eine Übersicht der wichtigsten Gesetze,
+                Verordnungen und Vorschriften des deutschen Eisenbahnrechts.
+                Wähle ein Rechtsgebiet oder suche direkt nach einem Gesetz.
+            </p>
+        </div>
+
+        <!-- Suche -->
+        <div class="gesetzsuche">
+            <input
+                type="search"
+                id="gesetzsuche"
+                placeholder="Gesetz oder Abkürzung suchen ..."
+                aria-label="Gesetze durchsuchen"
+            >
+        </div>
+
+        <p id="keine-treffer" class="keine-treffer">
+            Keine passenden Gesetze gefunden.
+        </p>
+
+        <!-- 1. Allgemeines Eisenbahnrecht -->
+        <section class="gesetz-kategorie">
+            <h2>Allgemeines Eisenbahnrecht</h2>
+
+            <div class="gesetz-grid">
+
+                <article class="gesetz-card"
+                    data-search="allgemeines eisenbahngesetz aeg">
+                    <span class="gesetz-abkuerzung">AEG</span>
+                    <h3>Allgemeines Eisenbahngesetz</h3>
+                    <p>
+                        Grundlagen des Eisenbahnwesens,
+                        Eisenbahnunternehmen und Infrastruktur.
+                    </p>
+                    <a class="gesetz-link"
+                       href="AEG/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="eisenbahnregulierungsgesetz ereg">
+                    <span class="gesetz-abkuerzung">ERegG</span>
+                    <h3>Eisenbahnregulierungsgesetz</h3>
+                    <p>
+                        Regulierung des Eisenbahnmarktes und
+                        Zugang zur Eisenbahninfrastruktur.
+                    </p>
+                    <a class="gesetz-link"
+                       href="ERegG/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="eisenbahnverkehrsverwaltungsgesetz evvg">
+                    <span class="gesetz-abkuerzung">EVVG</span>
+                    <h3>Eisenbahnverkehrsverwaltungsgesetz</h3>
+                    <p>
+                        Verwaltung und Organisation der
+                        Eisenbahnverkehrsverwaltung des Bundes.
+                    </p>
+                    <a class="gesetz-link"
+                       href="EVVG/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 2. Bau und Betrieb -->
+        <section class="gesetz-kategorie">
+            <h2>Bau und Betrieb von Eisenbahnen</h2>
+
+            <div class="gesetz-grid">
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn bau und betriebsordnung ebo">
+                    <span class="gesetz-abkuerzung">EBO</span>
+                    <h3>Eisenbahn-Bau- und Betriebsordnung</h3>
+                    <p>
+                        Vorschriften für den Bau und Betrieb
+                        regelspuriger Eisenbahnen.
+                    </p>
+                    <a class="gesetz-link"
+                       href="EBO/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn bau und betriebsordnung für schmalspurbahnen esbo">
+                    <span class="gesetz-abkuerzung">ESBO</span>
+                    <h3>Eisenbahn-Bau- und Betriebsordnung für Schmalspurbahnen</h3>
+                    <p>
+                        Bau und Betrieb von Schmalspurbahnen.
+                    </p>
+                    <a class="gesetz-link"
+                       href="ESBO/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn signalordnung eso">
+                    <span class="gesetz-abkuerzung">ESO</span>
+                    <h3>Eisenbahn-Signalordnung</h3>
+                    <p>
+                        Signale und ihre Bedeutung im
+                        Eisenbahnbetrieb.
+                    </p>
+                    <a class="gesetz-link"
+                       href="ESO/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn bau und betriebsordnung bundesbahn">
+                    <span class="gesetz-abkuerzung">Weitere Vorschriften</span>
+                    <h3>Technische Betriebsvorschriften</h3>
+                    <p>
+                        Ergänzende Vorschriften und Regelwerke
+                        für den Eisenbahnbetrieb.
+                    </p>
+                    <a class="gesetz-link"
+                       href="#">
+                        Vorschriften ansehen
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 3. Sicherheit -->
+        <section class="gesetz-kategorie">
+            <h2>Sicherheit und Unfalluntersuchung</h2>
+
+            <div class="gesetz-grid">
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn sicherheitsverordnung esiv">
+                    <span class="gesetz-abkuerzung">ESiV</span>
+                    <h3>Eisenbahn-Sicherheitsverordnung</h3>
+                    <p>
+                        Sicherheitsanforderungen und
+                        Sicherheitsmanagement im Eisenbahnwesen.
+                    </p>
+                    <a class="gesetz-link"
+                       href="ESiV/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="allgemeine eisenbahngesetz sicherheit aeg">
+                    <span class="gesetz-abkuerzung">AEG</span>
+                    <h3>Sicherheitsvorschriften des AEG</h3>
+                    <p>
+                        Sicherheitsverantwortung und
+                        Anforderungen an Eisenbahnunternehmen.
+                    </p>
+                    <a class="gesetz-link"
+                       href="AEG/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 4. Personal -->
+        <section class="gesetz-kategorie">
+            <h2>Eisenbahnpersonal und Qualifikation</h2>
+
+            <div class="gesetz-grid">
+
+                <article class="gesetz-card"
+                    data-search="lokführer triebfahrzeugführerschein tfv">
+                    <span class="gesetz-abkuerzung">TfV</span>
+                    <h3>Triebfahrzeugführerscheinverordnung</h3>
+                    <p>
+                        Anforderungen an Triebfahrzeugführer
+                        und deren Qualifikation.
+                    </p>
+                    <a class="gesetz-link"
+                       href="TfV/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn fahrdienstleiter personal">
+                    <span class="gesetz-abkuerzung">Personal</span>
+                    <h3>Weitere Personalvorschriften</h3>
+                    <p>
+                        Regelungen zu Ausbildung, Prüfung
+                        und betrieblicher Qualifikation.
+                    </p>
+                    <a class="gesetz-link"
+                       href="#">
+                        Vorschriften ansehen
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 5. Weitere Rechtsgebiete -->
+        <section class="gesetz-kategorie">
+            <h2>Weitere Rechtsgebiete</h2>
+
+            <div class="gesetz-grid">
+
+                <article class="gesetz-card"
+                    data-search="eisenbahn kreuzungsgesetz ekrG">
+                    <span class="gesetz-abkuerzung">EKrG</span>
+                    <h3>Eisenbahnkreuzungsgesetz</h3>
+                    <p>
+                        Regelungen zu Kreuzungen von Eisenbahnen
+                        mit Straßen und Wegen.
+                    </p>
+                    <a class="gesetz-link"
+                       href="EKrG/index.html">
+                        Gesetz öffnen
+                    </a>
+                </article>
+
+                <article class="gesetz-card"
+                    data-search="bundeseisenbahnverkehrsverwaltung">
+                    <span class="gesetz-abkuerzung">BEVVG</span>
+                    <h3>Bundeseisenbahnverkehrsverwaltung</h3>
+                    <p>
+                        Vorschriften zur Organisation und
+                        Verwaltung des Eisenbahnwesens.
+                    </p>
+                    <a class="gesetz-link"
+                       href="#">
+                        Vorschriften ansehen
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <div class="gesetz-hinweis">
+            <strong>Hinweis:</strong>
+            Diese Übersicht dient der Orientierung.
+            Maßgeblich ist stets die aktuelle amtliche
+            Fassung des jeweiligen Gesetzes oder der Verordnung.
+        </div>
+
+    </div>
+
+    <!-- Fußzeile -->
+    <div id="fusszeile">
+        <ul class="footerul">
+            <li>
+                <a href="../index.html" class="navBlack">
+                    Startseite
+                </a>
+            </li>
+            <li>
+                <a href="../impressum.html" class="navBlack">
+                    Impressum
+                </a>
+            </li>
+            <li>
+                <a href="../datenschutz.html" class="navBlack">
+                    Datenschutz
+                </a>
+            </li>
+            <li>
+                <a href="../barrierefreiheit.html" class="navBlack">
+                    Barrierefreiheit
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    const suchfeld = document.getElementById("gesetzsuche");
+    const gesetzkarten = document.querySelectorAll(".gesetz-card");
+    const keineTreffer = document.getElementById("keine-treffer");
+    const kategorien = document.querySelectorAll(".gesetz-kategorie");
+
+    suchfeld.addEventListener("input", function () {
+        const suchbegriff = this.value.toLowerCase().trim();
+        let sichtbareKarten = 0;
+
+        gesetzkarten.forEach(function (karte) {
+            const text = (
+                karte.textContent + " " +
+                karte.dataset.search
+            ).toLowerCase();
+
+            const sichtbar = text.includes(suchbegriff);
+
+            karte.style.display = sichtbar ? "flex" : "none";
+
+            if (sichtbar) {
+                sichtbareKarten++;
+            }
+        });
+
+        kategorien.forEach(function (kategorie) {
+            const karten = kategorie.querySelectorAll(".gesetz-card");
+
+            const hatTreffer = Array.from(karten).some(function (karte) {
+                return karte.style.display !== "none";
+            });
+
+            kategorie.style.display = hatTreffer ? "block" : "none";
+        });
+
+        keineTreffer.style.display =
+            sichtbareKarten === 0 ? "block" : "none";
+    });
+</script>
+
+</body>
+</html>
