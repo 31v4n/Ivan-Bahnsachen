@@ -139,6 +139,104 @@
                 flex-direction: column;
             }
         }
+
+        
+        /* ==========================================
+           Rahmenlose Gestaltung – Ivans Bahnsachen
+           ========================================== */
+        
+        /* Allgemeine Rahmen entfernen */
+        * {
+            border: none !important;
+            outline: none;
+        }
+        
+        /* Gesetzescontainer */
+        #container {
+            border: none !important;
+        }
+        
+        /* Gesetzesüberschriften */
+        .jnheader h1 {
+            border: none !important;
+        }
+        
+        /* Gesetzeskarten */
+        .gesetz-card {
+            border: none !important;
+        }
+        
+        /* Gesetzeskategorien */
+        .gesetz-kategorie h2 {
+            border: none !important;
+        }
+        
+        /* Suchfeld */
+        .gesetzsuche input {
+            border: none !important;
+        }
+        
+        /* Tabellen */
+        table,
+        table th,
+        table td {
+            border: none !important;
+        }
+        
+        /* Tabellenzeilen */
+        table tbody tr {
+            border: none !important;
+        }
+        
+        /* Creator-Banner */
+        .creator-banner {
+            border: none !important;
+        }
+        
+        /* Fußzeile */
+        #fusszeile {
+            border: none !important;
+        }
+        
+        /* Blättern-Leiste */
+        #blaettern_zurueck a,
+        #blaettern_weiter a {
+            border: none !important;
+        }
+        
+        /* Hinweise */
+        .gesetz-hinweis,
+        .kommentar_Fundstelle {
+            border: none !important;
+        }
+
+        .jnheader h1 {
+            border-bottom: 2px solid #ffedd5;
+        }
+
+        .jnheader h1 {
+            font-size: 1.4rem;
+            color: #1e3a8a;
+            padding-bottom: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .gesetz-card {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border: none !important;
+            border-radius: 10px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .gesetz-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.12);
+        }
+
     </style>
 </head>
 
