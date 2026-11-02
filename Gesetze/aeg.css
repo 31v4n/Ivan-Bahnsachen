@@ -9,6 +9,13 @@ body {
     line-height: 1.6;
 }
 
+@media (orientation: portrait) {
+  body {
+    /* Zoomt die gesamte Seite um 30% heran (entspricht ca. 3x Strg + Plus) */
+    zoom: 1.3; 
+  }
+}
+
 ul {
     list-style: none;
     margin: 0;
