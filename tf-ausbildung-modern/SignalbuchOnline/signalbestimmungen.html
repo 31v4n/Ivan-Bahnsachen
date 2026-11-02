@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TF-Ausbildung.de - Allgemeines</title>
+  <meta name="description" content="Tf-Ausbildung">
+  <meta name="author" content="Sven Thater">
+  <meta name="keywords" content="Lokführer, Lokführerausbildung, Ausbildung, EiB, Transport, EiB L/T, Eisenbahn, Triebfahrzeugführer">
+  
+  <!-- CSS und JS wie vorgegeben verlinkt -->
+  <link rel="stylesheet" href="allgemeines.css">
+  <script src="signal-nav.js" defer></script>
+
+  <!-- Zusatz-CSS für die Barrierefreiheit/Layout & die modernisierte Tabelle -->
+  <style>
+    /* Styling für die modernisierte Tabelle als Ersatz für zusatzkennl.png */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .custom-table th,
+    .custom-table td {
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .custom-table th.main-category {
+      background: var(--highlight);
+      color: var(--primary-dark);
+      font-size: 1.15rem;
+      font-weight: 800;
+      width: 25%;
+      text-align: center;
+    }
+
+    .custom-table td.sub-category {
+      font-weight: 700;
+      color: var(--text);
+      width: 35%;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .custom-table td.description {
+      color: var(--text);
+      width: 40%;
+      line-height: 1.5;
+    }
+
+    /* Aufbereitung der Begriffsbestimmungen als Inhaltskarten */
+    .term-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .term-card__letter {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .term-card h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .term-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .term-card ul {
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+      color: var(--text);
+    }
+
+    .term-card li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-shell">
+    <!-- Die Seitenleiste wird dynamisch von signal-nav.js in dieses Element eingefügt -->
+    <aside class="signal-overview" data-signal-nav></aside>
+
+    <!-- Hauptinhalt -->
+    <main class="content">
+      
+      <header class="content-header">
+        <p class="eyebrow">Signalbuch-Online</p>
+        <h1>Begriffsbestimmungen</h1>
+        <p class="intro">
+          Die Signale dürfen nur in den vorgeschriebenen Formen, Farben und Klangarten und für den vorgesehenen Zweck verwendet werden.
+        </p>
+      </header>
+
+      <div class="terms-container">
+        
+        <!-- (a) Signal -->
+        <article class="term-card">
+          <span class="term-card__letter">(a)</span>
+          <h2>Signal</h2>
+          <p>Ein Signal ist ein sichtbares oder hörbares Zeichen mit einer festgelegten Information zur Gewährleistung des sicheren Bewegens von Eisenbahnfahrzeugen.</p>
+        </article>
+
+        <!-- (b) Signalbegriff -->
+        <article class="term-card">
+          <span class="term-card__letter">(b)</span>
+          <h2>Signalbegriff</h2>
+          <p>Der Signalbegriff ist die Kurzbezeichnung eines Signals (z.&nbsp;B. „Ra 13“), die bei einigen Signalen durch eine Langbezeichnung ergänzt ist (z.&nbsp;B. „Isolierzeichen“).</p>
+        </article>
+
+        <!-- (c) Signalbedeutung -->
+        <article class="term-card">
+          <span class="term-card__letter">(c)</span>
+          <h2>Signalbedeutung</h2>
+          <p>Die Signalbedeutung ist die verbale Darstellung der Information, die ein Signal gibt.</p>
+        </article>
+
+        <!-- (d) Signalbeschreibung -->
+        <article class="term-card">
+          <span class="term-card__letter">(d)</span>
+          <h2>Signalbeschreibung</h2>
+          <p>Die Signalbeschreibung ist die verbale Darstellung des Signalbildes oder des Signaltones.</p>
+        </article>
+
+        <!-- (e) Signalbild -->
+        <article class="term-card">
+          <span class="term-card__letter">(e)</span>
+          <h2>Signalbild</h2>
+          <p>Das Signalbild umfasst die für ein sichtbares Signal festgelegten Formen, Farben und Merkmale (z.&nbsp;B. Symbole, Buchstaben, Zahlen, etc.).</p>
+        </article>
+
+        <!-- (f) Signalton -->
+        <article class="term-card">
+          <span class="term-card__letter">(f)</span>
+          <h2>Signalton</h2>
+          <p>Der Signalton umfasst das hörbare Signal, das aus einem oder mehreren Tönen besteht, für die die Dauer und, wenn erforderlich, auch die Tonhöhe festgelegt sind.</p>
+        </article>
+
+        <!-- (g) Ortsfeste signaltechnische Einrichtungen -->
+        <article class="term-card">
+          <span class="term-card__letter">(g)</span>
+          <h2>Ortsfeste signaltechnische Einrichtungen</h2>
+          <p>Ortsfeste signaltechnische Einrichtungen, die Signale nach a) zeigen, werden nach ihrer Funktion bezeichnet. Es gibt zum Beispiel:</p>
+          <ul>
+            <li>Hauptsignale</li>
+            <li>Vorsignale</li>
+            <li>Sperrsignale</li>
+            <li>Überwachungssignale</li>
+            <li>Weichensignale</li>
+            <li>Abdrücksignale</li>
+          </ul>
+        </article>
+
+        <!-- (h) Weißes Licht / Zusatzlicht -->
+        <article class="term-card">
+          <span class="term-card__letter">(h)</span>
+          <h2>Weißes Licht / Zusatzlicht</h2>
+          <p>Wenn es nicht Bestandteil eines Signals ist, wird ein weißes Licht verwendet als:</p>
+          
+          <!-- Modernisierte HTML-Tabelle als Ersatz für zusatzkennl.png -->
+          <div class="table-container">
+            <table class="custom-table">
+              <tbody>
+                <tr>
+                  <th rowspan="2" class="main-category">Zusatzlicht</th>
+                  <td class="sub-category">Bei Signalen mit Mastschild oder Vorsignaltafel</td>
+                  <td class="description">zur Kennzeichnung eines um mehr als 5% verkürzten Bremsweges</td>
+                </tr>
+                <tr>
+                  <td class="sub-category">Bei Signalen ohne Mastschild oder Vorsignaltafel</td>
+                  <td class="description">zur Kennzeichnung eines Vorsignalwiederholers</td>
+                </tr>
+                <tr>
+                  <th rowspan="2" class="main-category">Kennlicht</th>
+                  <td class="sub-category">anstelle eines Lichtsignals</td>
+                  <td class="description">zur Kennzeichnung eines nicht gestörten Hauptsignals mit zeitweilig betrieblich abgeschaltetem Hp-, Ks-, Hl-, Sv- oder Vr-Signal.</td>
+                </tr>
+                <tr>
+                  <td class="sub-category">anstelle eines LED-Fahrleitungssignals</td>
+                  <td class="description">zur Kennzeichnung eines nicht gestörten, zeitweilig betrieblich abgeschalteten LED-Fahrleitungssignals</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+      </div>
+
+      <footer class="content-footer">
+        <div>TF-Ausbildung.de / S. Thater</div>
+        <div>Signalbuch-Online</div>
+      </footer>
+
+    </main>
+  </div>
+
+</body>
+</html>

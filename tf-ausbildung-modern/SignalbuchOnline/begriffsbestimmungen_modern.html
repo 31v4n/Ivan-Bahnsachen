@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TF-Ausbildung.de – Signalbuch-Online – Begriffsbestimmungen">
+  <meta name="author" content="Sven Thater">
+  <meta name="keywords" content="Lokführer, Lokführerausbildung, Eisenbahn, Triebfahrzeugführer, Signalbuch">
+  <title>TF-Ausbildung.de – Signalbuch-Online – Begriffsbestimmungen</title>
+
+  <style>
+    :root {
+      --bg: #eef1f3;
+      --surface: #fff;
+      --text: #20262d;
+      --muted: #66727e;
+      --primary: #b85b00;
+      --primary-dark: #833f00;
+      --border: #d5dbe0;
+      --mast: #41484e;
+      --mast-dark: #252a2e;
+      --highlight: #fff4e8;
+      --shadow-sm: 0 3px 10px rgba(20,30,40,.07);
+      --shadow-md: 0 12px 32px rgba(20,30,40,.11);
+      --radius: 12px;
+      --content-width: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 55% 0, rgba(255,255,255,.96), transparent 38rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .page-shell {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+      padding: 28px 28px 48px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    /* =========================
+       Signal-Mast / Seitenleiste
+       ========================= */
+
+    .signal-overview { width: 270px; }
+
+    .signal-structure {
+      position: relative;
+      padding: 0 20px 18px;
+    }
+
+    .signal-structure::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 106px;
+      bottom: 38px;
+      left: 50%;
+      width: 10px;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      background:
+        linear-gradient(
+          90deg,
+          var(--mast-dark) 0 18%,
+          #626a70 18% 42%,
+          #343a3f 42% 72%,
+          #1f2428 72% 100%
+        );
+      box-shadow:
+        inset 1px 0 rgba(255,255,255,.15),
+        2px 0 4px rgba(0,0,0,.12);
+    }
+
+    .signal-sign {
+      position: relative;
+      z-index: 3;
+      width: 184px;
+      min-height: 100px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      padding: 22px 16px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(145deg, #c9680b, #9b4700);
+      border: 3px solid #633000;
+      border-radius: 7px;
+      box-shadow: 0 5px 0 #542a00, 0 12px 24px rgba(0,0,0,.18);
+      clip-path: polygon(
+        7% 0, 93% 0, 100% 14%, 100% 86%,
+        93% 100%, 7% 100%, 0 86%, 0 14%
+      );
+    }
+
+    .signal-sign::before,
+    .signal-sign::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 54px;
+      height: 3px;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,.25);
+    }
+
+    .signal-sign::before { top: 10px; }
+    .signal-sign::after { bottom: 10px; }
+
+    .signal-sign__title {
+      font-size: 17px;
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-shadow: 0 1px 2px rgba(0,0,0,.25);
+    }
+
+    .signal-sign__bolt {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #d7dadd;
+      border: 1px solid #70767a;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,.8);
+    }
+
+    .signal-sign__bolt--1 { top: 11px; left: 12px; }
+    .signal-sign__bolt--2 { top: 11px; right: 12px; }
+    .signal-sign__bolt--3 { bottom: 11px; left: 12px; }
+    .signal-sign__bolt--4 { bottom: 11px; right: 12px; }
+
+    .signal-links {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .signal-link {
+      position: relative;
+      width: 190px;
+      min-height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 16px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      line-height: 1.15;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .16s ease, background-color .16s ease,
+                  color .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .signal-link::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 50%;
+      width: 31px;
+      height: 7px;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(#565e64, #30363b);
+    }
+
+    .signal-link:hover {
+      transform: translateX(5px);
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary-dark);
+      box-shadow: 0 7px 15px rgba(90,45,0,.18);
+    }
+
+    .signal-link:focus-visible,
+    .content-link:focus-visible {
+      outline: 3px solid #1d70b8;
+      outline-offset: 3px;
+    }
+
+    .signal-link--start,
+    .signal-link--section {
+      background: var(--highlight);
+      border-color: #e5c8aa;
+      color: var(--primary-dark);
+    }
+
+    .signal-link.is-active {
+      color: #fff;
+      background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+      border-color: var(--primary-dark);
+      box-shadow: 0 7px 16px rgba(90,45,0,.2);
+    }
+
+    .signal-link--end { margin-bottom: 3px; }
+
+    .signal-mast-end {
+      position: relative;
+      z-index: 1;
+      width: 30px;
+      height: 18px;
+      margin: 0 auto;
+      border-radius: 2px 2px 5px 5px;
+      background: linear-gradient(90deg, #252a2e, #60686e 45%, #252a2e);
+      box-shadow: 0 4px 8px rgba(0,0,0,.14);
+    }
+
+    .signal-mast-end::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 48px;
+      height: 6px;
+      transform: translateX(-50%);
+      border-radius: 3px;
+      background: #30363b;
+    }
+
+    /* =========================
+       Inhalt
+       ========================= */
+
+    .content {
+      min-width: 0;
+      max-width: var(--content-width);
+      padding: 12px 0;
+    }
+
+    .content-header {
+      margin-bottom: 28px;
+      padding: 34px 38px;
+      background: rgba(255,255,255,.84);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .article {
+      padding: 34px 38px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .lead-rule {
+      margin: 0 0 28px;
+      padding: 18px 20px;
+      color: var(--primary-dark);
+      background: var(--highlight);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      font-weight: 750;
+      line-height: 1.55;
+    }
+
+    .definition {
+      margin: 0 0 26px;
+    }
+
+    .definition__title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 0 0 7px;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .definition__letter {
+      flex: 0 0 auto;
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .definition p {
+      margin: 0;
+      color: #39434c;
+      line-height: 1.65;
+    }
+
+    .example-list {
+      margin: 12px 0 0;
+      padding-left: 24px;
+      line-height: 1.75;
+    }
+
+    .example-list li::marker {
+      color: var(--primary);
+    }
+
+    .graphic-section {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .graphic-section h2 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+    }
+
+    .graphic-section p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .graphic-frame {
+      overflow: hidden;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .graphic-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 788px;
+      margin: 0 auto;
+    }
+
+    .graphic-caption {
+      margin: 10px 2px 0;
+      color: var(--muted);
+      font-size: .78rem;
+      text-align: center;
+    }
+
+    .content-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 30px;
+      padding: 18px 4px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: .78rem;
+    }
+
+    @media (max-width: 900px) {
+      .page-shell {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .signal-overview {
+        width: min(270px, 100%);
+      }
+
+      .content {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-shell {
+        padding: 16px 12px 32px;
+        gap: 24px;
+      }
+
+      .content-header,
+      .article {
+        padding: 26px 22px;
+        border-radius: 16px;
+      }
+
+      .content-footer {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .signal-link { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+
+    <aside class="signal-overview" aria-label="Signalbuch-Navigation">
+      <div class="signal-structure">
+
+        <div class="signal-sign" aria-hidden="true">
+          <span class="signal-sign__title">SIGNAL<br>BUCH</span>
+          <span class="signal-sign__bolt signal-sign__bolt--1"></span>
+          <span class="signal-sign__bolt signal-sign__bolt--2"></span>
+          <span class="signal-sign__bolt signal-sign__bolt--3"></span>
+          <span class="signal-sign__bolt signal-sign__bolt--4"></span>
+        </div>
+
+        <nav class="signal-links" id="signal-navigation"></nav>
+
+        <div class="signal-mast-end" aria-hidden="true"></div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Signalbuch-Online</p>
+        <h1>Begriffsbestimmungen</h1>
+        <p class="intro">
+          Grundlegende Begriffe und Definitionen aus dem Signalbuch.
+        </p>
+      </header>
+
+      <article class="article">
+        <p class="lead-rule">
+          Die Signale dürfen nur in den vorgeschriebenen Formen, Farben und Klangarten
+          und für den vorgesehenen Zweck verwendet werden.
+        </p>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(a)</span>
+            <span>Signal</span>
+          </h2>
+          <p>
+            Ein Signal ist ein sichtbares oder hörbares Zeichen mit einer festgelegten
+            Information zur Gewährleistung des sicheren Bewegens von Eisenbahnfahrzeugen.
+          </p>
+        </section>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(b)</span>
+            <span>Signalbegriff</span>
+          </h2>
+          <p>
+            Der Signalbegriff ist die Kurzbezeichnung eines Signals (zB. „Ra 13“),
+            die bei einigen Signalen durch eine Langbezeichnung ergänzt ist
+            (zB. „Isolierzeichen“).
+          </p>
+        </section>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(c)</span>
+            <span>Signalbedeutung</span>
+          </h2>
+          <p>
+            Die Signalbedeutung ist die verbale Darstellung der Information die ein Signal gibt.
+          </p>
+        </section>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(d)</span>
+            <span>Signalbeschreibung</span>
+          </h2>
+          <p>
+            Die Signalbeschreibung ist die verbale Darstellung des Signalbildes oder des Signaltones.
+          </p>
+        </section>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(e)</span>
+            <span>Signalbild</span>
+          </h2>
+          <p>
+            Das Signalbild umfasst die für ein sichtbares Signal festgelegten Formen,
+            Farben und Merkmale (z.B. Symbole, Buchstaben, Zahlen, etc.).
+          </p>
+        </section>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(f)</span>
+            <span>Signalton</span>
+          </h2>
+          <p>
+            Der Signalton umfasst das hörbare Signal, das aus einem oder mehreren Tönen besteht,
+            für die die Dauer und, wenn erforderlich, auch die Tonhöhe festgelegt sind.
+          </p>
+        </section>
+
+        <section class="definition">
+          <h2 class="definition__title">
+            <span class="definition__letter">(g)</span>
+            <span>Ortsfeste signaltechnische Einrichtungen</span>
+          </h2>
+          <p>
+            Ortsfeste signaltechnische Einrichtungen, die Signale nach a) zeigen,
+            werden nach ihrer Funktion bezeichnet.
+          </p>
+
+          <p style="margin-top:12px;">Es gibt zum Beispiel:</p>
+          <ul class="example-list">
+            <li>Hauptsignale</li>
+            <li>Vorsignale</li>
+            <li>Sperrsignale</li>
+            <li>Überwachungssignale</li>
+            <li>Weichensignale</li>
+            <li>Abdrücksignale</li>
+          </ul>
+        </section>
+
+        <section class="graphic-section">
+          <h2>(h) Weißes Licht / Zusatzlicht</h2>
+          <p>
+            Wenn es nicht Bestandteil eines Signals ist, wird ein weißes Licht verwendet als:
+          </p>
+
+          <div class="graphic-frame">
+            <img
+              src="https://www.tf-ausbildung.de/SignalbuchOnline/Grafiken/zusatzkennl.png"
+              alt="Tabelle zur Verwendung von Zusatzlicht und Kennlicht"
+              title="Grafik: TF-Ausbildung.de / S. Thater"
+              width="788"
+              height="538"
+              loading="lazy"
+            >
+          </div>
+          <p class="graphic-caption">Grafik: TF-Ausbildung.de / S. Thater</p>
+        </section>
+      </article>
+
+      <footer class="content-footer">
+        <span>TF-Ausbildung.de</span>
+        <span>Signalbuch-Online · Begriffsbestimmungen</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    /*
+     * Navigation der Seitenleiste.
+     * Die Links entsprechen der ursprünglichen Signalbuch-Navigation.
+     */
+    const signalLinks = [
+      ["Startseite", "http://www.tf-ausbildung.de/index.htm", "start"],
+      ["Allgemeines", "allgemeines.htm"],
+      ["Hp-Signale", "hpsignale.htm"],
+      ["Ks-Signale", "kssignale.htm"],
+      ["Hl-Signale", "hlsignale.htm"],
+      ["Sv-Signale", "svsignale.htm"],
+      ["Vr-Signale", "vrsignale.htm"],
+      ["Zs-Signale", "zssignale.htm"],
+      ["Ts-Signale", "tssignale.htm"],
+      ["Lf-Signale", "lfsignale.htm"],
+      ["Sh-Signale", "shsignale.htm"],
+      ["Ra-Signale", "rasignale.htm"],
+      ["Wn-Signale", "wnsignale.htm"],
+      ["Zp-Signale", "zpsignale.htm"],
+      ["El-Signale", "elsignale.htm"],
+      ["Zg-Signale", "zgsignale.htm"],
+      ["Fz-Signale", "fzsignale.htm"],
+      ["Ro-Signale", "rosignale.htm"],
+      ["Ne-Signale", "nesignale.htm"],
+      ["Bü-Signale", "buesignale.htm"],
+      ["Orientierungszeichen", "orientierungszeichen.htm", "section"],
+      ["Hebelgewichte", "hebelgewichte.htm", "end"]
+    ];
+
+    const navigation = document.getElementById("signal-navigation");
+
+    signalLinks.forEach(([label, href, type]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.className = "signal-link";
+
+      if (type === "start") link.classList.add("signal-link--start");
+      if (type === "section") link.classList.add("signal-link--section");
+      if (type === "end") link.classList.add("signal-link--end");
+
+      if (label === "Allgemeines") {
+        // Diese Seite gehört zur Kategorie "Begriffsbestimmungen".
+        // "Allgemeines" bleibt als Einstieg in der Navigation sichtbar.
+      }
+
+      link.innerHTML = "<span>" + label + "</span>";
+      navigation.appendChild(link);
+    });
+  </script>
+</body>
+</html>

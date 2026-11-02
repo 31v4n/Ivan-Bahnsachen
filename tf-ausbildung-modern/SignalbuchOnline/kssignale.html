@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TF-Ausbildung.de - Ks-Signale</title>
+  <meta name="description" content="Tf-Ausbildung - Kombinationssignale (Ks)">
+  <meta name="author" content="Sven Thater">
+  <meta name="keywords" content="Lokführer, Lokführerausbildung, Ausbildung, EiB, Transport, EiB L/T, Eisenbahn, Triebfahrzeugführer, Ks-Signale">
+  
+  <!-- CSS & JS Verlinkungen -->
+  <link rel="stylesheet" href="allgemeines.css">
+  <script src="signal-nav.js" defer></script>
+</head>
+<body>
+
+  <div class="page-shell">
+    <!-- Die Navigations-Seitenleiste wird dynamisch von signal-nav.js hier hineingerendert -->
+    <aside class="signal-overview" data-signal-nav></aside>
+
+    <!-- Hauptinhaltsbereich -->
+    <main class="content">
+      
+      <header class="content-header">
+        <p class="eyebrow">Signalbuch-Online</p>
+        <h1>Kombinationssignale (Ks)</h1>
+        <p class="intro">Übersicht und Bestimmungen zu den Kombinationssignalen der deutschen Eisenbahn.</p>
+      </header>
+	  
+	  	<!-- Erklärer-Karte (Menschliche Ebene) -->
+		<!-- Erklärer-Karte (Menschliche Ebene) -->
+		<div class="explanation-card">
+		  <div class="explanation-icon" aria-hidden="true">💡</div>
+			
+		  <div class="explanation-content">
+			<div class="explanation-badge">Das Grundprinzip</div>
+			<h3 class="explanation-title">Die Logik hinter den Bezeichnungen</h3>
+			
+			<div class="explanation-text">
+			  <p>
+				Ks-Signale kombinieren die Aussagen von Haupt- und Vorsignal. Sie verraten dir also gleichzeitig, was <strong>jetzt</strong> gilt und was du am <strong>nächsten</strong> Signal zu erwarten hast.
+			  </p>
+
+			  <div class="highlight-note">
+				<strong>Der Haltebegriff im Ks-Signalsystem</strong><br>
+				Wenn du vor einem Signal anhalten musst, ist es in diesem Moment völlig egal, was das übernächste Signal zeigt. Deshalb kriegst du diese Information im Ks-Signalsystem <strong>nicht geliefert</strong>, erst wenn du losfährst, also erst, wenn dir ein Fahrtbegriff gezeigt wird.
+			  </div>
+
+			  <p>
+				Weil eine Info über das nächste Signal bei Halt also komplett entfällt, gibt es kein „Halt. Fahrt erwarten“ oder „Halt. Halt erwarten“. Und weil der Begriff für das reine Stehenbleiben in der Eisenbahnwelt seit geraumer Zeit <strong>Hp 0</strong> heißt, hat sich diese Bezeichnung auch im Ks-Signalsystem gehalten. Wenn ein Ks-Signal Halt befiehlt, heißt der Begriff schlicht Hp 0.
+			  </p>
+
+			  <p>
+				Das bedeutet im Umkehrschluss: Ein echter <strong>Ks-Signalbegriff</strong> existiert überhaupt nur dann, wenn du aktuell <strong>Fahrt</strong> hast! Und da dir dein Signal immer auch direkt sagt, was als Nächstes blüht, bleiben exakt die folgenden zwei Fälle übrig:
+			  </p>
+
+			  <ul class="signal-highlights">
+				<li><strong>Ks 1:</strong> „Fahrt.“ <em>(Aktuell Fahrt + am nächsten Signal ebenfalls Fahrt erwarten)</em></li>
+				<li><strong>Ks 2:</strong> „Halt erwarten.“ <em>(Aktuell Fahrt + am nächsten Signal Halt erwarten)</em></li>
+			  </ul>
+			  
+			  <p>
+				  <strong>Aber was ist mit Geschwindigkeitsbeschränkungen?</strong> 
+				  Eine feste „Langsamfahrt“ (wie die 40 km/h beim Hp 2) gibt es als eigenen Ks-Signalbegriff nicht mehr. Geschwindigkeiten werden flexibel über Zusatzsignale geregelt: 
+				  Eine <strong>weiße Ziffer</strong> überhalb des Signalbildschirm (Zs 3) zeigt die ab hier gültige Geschwindigkeit an. Eine <strong>gelbe Ziffer</strong> unten (Zs 3v) kündigt die Geschwindigkeit für das nächste Signal an.
+				</p>
+				<p>
+				  Damit du eine Ankündigung rechtzeitig erkennst, <strong>blinkt das grüne Licht von Ks 1</strong>, sobald am selben Maste ein Zs 3v eine Geschwindigkeitsherabsetzung ankündigt. Zs 3 und Zs 3v sind dabei eigenständige Zusatzsignale, die auch in anderen Signalsystemen (wie dem Hv-System) genutzt werden.
+			  </p>
+			</div>
+		  </div>
+		</div>
+      <section class="topic-grid">
+        <!-- Allgemeines Card -->
+        <a href="allgemeineskssignale.html" class="topic-card">
+          <div class="topic-card__number">Info</div>
+          <div class="topic-card__content">
+            <strong>Allgemeines</strong>
+            <small>Allgemeine Bestimmungen für Kombinationssignale (Ks)</small>
+          </div>
+          <div class="topic-card__arrow">&rarr;</div>
+        </a>
+	
+
+        <!-- Signal Ks 1 Card -->
+        <a href="ks1.html" class="topic-card">
+          <div class="topic-card__number">Ks 1</div>
+          <div class="topic-card__content">
+            <strong>Signal Ks 1</strong>
+            <small>Fahrt.</small>
+          </div>
+          <div class="topic-card__arrow">&rarr;</div>
+        </a>
+
+        <!-- Signal Ks 2 Card -->
+        <a href="ks2.html" class="topic-card">
+          <div class="topic-card__number">Ks 2</div>
+          <div class="topic-card__content">
+            <strong>Signal Ks 2</strong>
+            <small>Halt erwarten.</small>
+          </div>
+          <div class="topic-card__arrow">&rarr;</div>
+        </a>
+
+        <!-- Ks-Signalbilder Card -->
+        <a href="kssignalbilder.html" class="topic-card">
+          <div class="topic-card__number">Übersicht</div>
+          <div class="topic-card__content">
+            <strong>Ks-Signalbilder</strong>
+            <small>Diverse Signalbilder der Kombinationssignale.</small>
+          </div>
+          <div class="topic-card__arrow">&rarr;</div>
+        </a>
+      </section>
+
+      <!-- Grafikanzeige & Footer -->
+      <section style="margin-top: 32px; text-align: center;">
+        <img src="Grafiken/kssignale.png" title="Bild: TF-Ausbildung.de / S. Thater" alt="Übersicht Ks-Signale" style="max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm);" />
+      </section>
+
+      <footer class="content-footer">
+        <span>TF-Ausbildung.de &copy; Sven Thater</span>
+        <span>Signalbuch-Online</span>
+      </footer>
+
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+(() => {
+  const host = document.querySelector('[data-signal-nav]');
+  if (!host) return;
+  const items = [
+    ['http://www.tf-ausbildung.de/index.html','Startseite','start'],['allgemeines.html','Allgemeines'],['hpsignale.html','Hp-Signale'],['kssignale.html','Ks-Signale'],['hlsignale.html','Hl-Signale'],['svsignale.html','Sv-Signale'],['vrsignale.html','Vr-Signale'],['zssignale.html','Zs-Signale'],['tssignale.html','Ts-Signale'],['lfsignale.html','Lf-Signale'],['shsignale.html','Sh-Signale'],['rasignale.html','Ra-Signale'],['wnsignale.html','Wn-Signale'],['zpsignale.html','Zp-Signale'],['elsignale.html','El-Signale'],['zgsignale.html','Zg-Signale'],['fzsignale.html','Fz-Signale'],['rosignale.html','Ro-Signale'],['nesignale.html','Ne-Signale'],['buesignale.html','Bü-Signale'],['orientierungszeichen.html','Orientierungszeichen','section'],['hebelgewichte.html','Hebelgewichte','end']
+  ];
+  const current = decodeURIComponent(location.pathname.split('/').pop()).toLowerCase();
+  host.innerHTML = `<div class="signal-structure"><div class="signal-sign" aria-hidden="true"><span class="signal-sign__title">Ivan's<br>Signalbuch</span><i class="signal-sign__bolt signal-sign__bolt--1"></i><i class="signal-sign__bolt signal-sign__bolt--2"></i><i class="signal-sign__bolt signal-sign__bolt--3"></i><i class="signal-sign__bolt signal-sign__bolt--4"></i></div><nav class="signal-links" aria-label="Signalbuch-Navigation">${items.map(([href,label,type])=>{const active=href.split('/').pop().toLowerCase()===current||(current===''&&type==='start');const classes=['signal-link',type==='start'?'signal-link--start':'',type==='section'?'signal-link--section':'',type==='end'?'signal-link--end':'',active?'is-active':''].filter(Boolean).join(' ');return `<a href="${href}" class="${classes}"${active?' aria-current="page"':''}><span>${label}</span></a>`}).join('')}</nav><div class="signal-mast-end" aria-hidden="true"></div></div>`;
+})();
