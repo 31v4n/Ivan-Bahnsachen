@@ -180,7 +180,7 @@ a {
               color .16s ease, border-color .16s ease, box-shadow .16s ease;
 }
 
-.signal-link::before {
+/*.signal-link::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -190,7 +190,7 @@ a {
   height: 7px;
   transform: translate(-50%, -50%);
   background: linear-gradient(#565e64, #30363b);
-}
+}*/
 
 .signal-link:hover {
   transform: translateX(5px);
