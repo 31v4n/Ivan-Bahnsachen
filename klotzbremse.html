@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Klotzbremse - Präsentation von Florian, Tobias und Ivan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        rail: {
+                            red: '#E63946',
+                            orange: '#F45D22',
+                            slate: '#0F172A',
+                            card: '#1E293B',
+                            border: '#334155'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B1120;
+            color: #F8FAFC;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Alle Rahmen (Borders & Outlines) global entfernen */
+        *, *::before, *::after {
+            border: none !important;
+            outline: none !important;
+        }
+
+        /* Sanfte Übergänge zwischen den Folien */
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px) scale(0.99);
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.45s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        /* Subtiler Hintergrund-Glow */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        }
+
+        /* SVG Interaktive Elemente */
+        .svg-part {
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .svg-part:hover, .svg-part.highlighted {
+            filter: drop-shadow(0 0 10px rgba(244, 93, 34, 0.75));
+        }
+        .svg-part.highlighted .highlight-stroke {
+            stroke: #F45D22 !important;
+            stroke-width: 3.5px !important;
+        }
+
+        /* Wärme-Pulsieren bei aktiver Bremse */
+        @keyframes heatPulse {
+            0%, 100% { opacity: 0.45; transform: scale(1); }
+            50% { opacity: 0.95; transform: scale(1.06); }
+        }
+        .heat-glow {
+            animation: heatPulse 2.2s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        /* Custom Scrollbar für kleine Bildschirme falls nötig */
+        .slide-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .slide-scroll::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-grid antialiased h-screen w-screen flex flex-col justify-between relative">
+
+    <!-- Dezente Lichtakzente im Hintergrund -->
+    <div class="pointer-events-none fixed -top-40 -right-40 w-96 h-96 rounded-full bg-orange-600/10 blur-3xl"></div>
+    <div class="pointer-events-none fixed -bottom-40 -left-40 w-96 h-96 rounded-full bg-red-600/10 blur-3xl"></div>
+
+    <!-- Top-Header Bar (dezent) -->
+    <header class="w-full px-6 sm:px-12 pt-5 pb-2 flex items-center justify-between z-20 text-xs sm:text-sm text-slate-400">
+        <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-red-500 to-orange-400"></span>
+            <span class="font-medium tracking-wide text-slate-300">Die Klotzbremse</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-4">
+            <span>Florian - Tobias - Ivan</span>
+            <button id="fullscreen-btn" title="Vollbild (Taste F)" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition flex items-center gap-1.5 shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+                <span class="text-xs">Vollbild</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hauptbereich für alle Folien -->
+    <main id="presentation-container" class="relative flex-1 w-full max-w-6xl mx-6 px-6 sm:px-12 overflow-hidden">
+
+        <!-- ========================================================= -->
+        <!-- FOLIE 1: TITELFOLIE                                       -->
+        <!-- ========================================================= -->
+        <section class="slide active" data-slide="1">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-transparent text-orange-400 text-xs sm:text-sm font-semibold tracking-wider mb-6">
+                    <span>Bremssysteme</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6">
+                    Die <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Klotzbremse</span>
+                </h1>
+
+                <p class="text-xl sm:text-2xl md:text-3xl font-light text-slate-300 mb-10 leading-relaxed">
+                    Heiligs Klötzle
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-6">
+                    <div class="text-sm text-slate-400 mr-2">Präsentation von:</div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-xl bg-transparent text-white font-medium flex items-center gap-2 shadow-md">
+                            <span class="w-2 h-2 rounded-full bg-red-500"></span> Florian
+                        </span>
+                        <span class="px-4 py-2 rounded-xl text-white font-medium flex items-center gap-2 shadow-md">
+                            <span class="w-2 h-2 rounded-full bg-orange-500"></span> Tobias
+                        </span>
+                        <span class="px-4 py-2 rounded-xl text-white font-medium flex items-center gap-2 shadow-md">
+                            <span class="w-2 h-2 rounded-full bg-amber-400"></span> Ivan
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- FOLIE 2: WIRKPRINZIP & TECHNISCHER HINTERGRUND            -->
+        <!-- ========================================================= -->
+        <section class="slide slide-scroll overflow-y-auto py-4" data-slide="2">
+            <div class="mb-5">
+                <span class="text-xs font-semibold tracking-widest text-orange-400">Technischer Hintergrund</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Wirkprinzip &amp; Aufbau</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <!-- Linke Spalte: Interaktive SVG-Schemazeichnung -->
+                <div class="lg:col-span-7 bg-slate-900/90 rounded-2xl p-4 sm:p-6 shadow-xl relative">
+                    <div class="flex items-center justify-between mb-2">
+                        <!--span class="text-xs font-medium text-slate-400">Interaktives Schema: Klicke oder fahre über ein Bauteil</span-->
+                        <button id="toggle-brake-btn" class="text-xs px-3 py-1 rounded-lg bg-transparent hover:bg-orange-500/30 text-orange-300 transition font-medium">
+                            Bremsvorgang aktiv
+                        </button>
+                    </div>
+
+                    <!-- Saubere Technische SVG-Darstellung -->
+                    <svg id="brake-svg" viewBox="0 0 560 320" class="w-full h-auto max-h-[300px] mx-auto">
+                        <defs>
+                            <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="60%" stop-color="#334155"/>
+                                <stop offset="88%" stop-color="#475569"/>
+                                <stop offset="100%" stop-color="#94A3B8"/>
+                            </radialGradient>
+                            <radialGradient id="heatGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#EF4444" stop-opacity="0.85"/>
+                                <stop offset="60%" stop-color="#F97316" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+
+                        <!-- Schiene unten -->
+                        <g id="rail-base">
+                            <rect x="30" y="276" width="500" height="10" rx="2" fill="#475569"/>
+                            <rect x="45" y="286" width="470" height="14" rx="2" fill="#1E293B"/>
+                            <text x="450" y="268" fill="#64748B" font-size="11" font-family="Inter, sans-serif">Schiene</text>
+                        </g>
+
+                        <!-- Eisenbahnrad -->
+                        <g id="train-wheel">
+                            <!-- Spurkranz (etwas größer hinten) -->
+                            <circle cx="340" cy="175" r="105" fill="#1E293B" stroke="#64748B" stroke-width="2"/>
+                            <!-- Radlauffläche -->
+                            <circle cx="340" cy="175" r="96" fill="url(#wheelGrad)" stroke="#CBD5E1" stroke-width="4"/>
+                            <!-- Innenkreis & Nabe -->
+                            <circle cx="340" cy="175" r="64" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+                            <circle cx="340" cy="175" r="24" fill="#334155" stroke="#94A3B8" stroke-width="3"/>
+                            <circle cx="340" cy="175" r="10" fill="#0F172A"/>
+                            <!-- Drehrichtungspfeil -->
+                            <path d="M 385 112 A 78 78 0 0 1 412 162" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4 3"/>
+                            <polygon points="412,167 407,157 417,158" fill="#94A3B8"/>
+                            <text x="320" y="135" fill="#94A3B8" font-size="11" font-family="Inter, sans-serif">Radlauffläche</text>
+                        </g>
+
+                        <!-- Wärme- & Reibungssymbolik an der Kontaktfläche -->
+                        <g id="friction-effects" class="heat-glow">
+                            <ellipse cx="242" cy="175" rx="18" ry="38" fill="url(#heatGlow)"/>
+                            <!-- Reibungs-Wellenlinien -->
+                            <path d="M 218 155 Q 212 162 218 169 T 218 183" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M 210 160 Q 204 167 210 174 T 210 188" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- BAUTEIL 1: Bremsklotz -->
+                        <g class="svg-part" data-part="klotz">
+                            <path class="highlight-stroke" d="M 226 132 L 243 135 A 98 98 0 0 0 243 215 L 226 218 A 112 112 0 0 1 226 132 Z" fill="#EF4444" stroke="#FCA5A5" stroke-width="1.5"/>
+                        </g>
+
+                        <!-- BAUTEIL 2: Bremsschuh-->
+                        <g class="svg-part" data-part="halter">
+                            <path class="highlight-stroke" d="M 208 124 L 226 128 A 114 114 0 0 0 226 222 L 208 226 L 204 175 Z" fill="#64748B" stroke="#CBD5E1" stroke-width="1.5"/>
+                            <circle cx="212" cy="175" r="6" fill="#0F172A" stroke="#CBD5E1" stroke-width="2"/>
+                        </g>
+
+                        <!-- BAUTEIL 3: Gestänge & Bremszylinder -->
+                        <g class="svg-part" data-part="zylinder">
+                            <!-- Bremszylinder Gehäuse -->
+                            <rect class="highlight-stroke" x="35" y="150" width="84" height="50" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+                            <!-- Druckluft-Kammer -->
+                            <rect x="40" y="155" width="32" height="40" rx="4" fill="#0284C7" fill-opacity="0.45"/>
+                            <!-- Kolben -->
+                            <rect x="72" y="154" width="8" height="42" fill="#94A3B8"/>
+                            <!-- Kolbenstange / Bremsgestänge -->
+                            <rect class="highlight-stroke" x="80" y="170" width="126" height="10" rx="3" fill="#94A3B8" stroke="#E2E8F0" stroke-width="1.5"/>
+                            <!-- Kraftpfeil (Anpressdruck) -->
+                            <path d="M 135 140 L 185 140" stroke="#F45D22" stroke-width="3" stroke-linecap="round"/>
+                            <polygon points="192,140 181,134 181,146" fill="#F45D22"/>
+                            <text x="128" y="132" fill="#F45D22" font-size="11" font-weight="600" font-family="Inter, sans-serif">Anpresskraft</text>
+                            <text x="44" y="179" fill="#E0F2FE" font-size="10" font-weight="600" font-family="Inter, sans-serif">Zylinder</text>
+                        </g>
+
+                        <!-- BAUTEIL 4: Rückholfeder -->
+                        <g class="svg-part" data-part="feder">
+                            <rect x="135" y="218" width="12" height="24" rx="2" fill="#475569"/>
+                            <path class="highlight-stroke" d="M 147 230 L 155 222 L 163 238 L 171 222 L 179 238 L 187 222 L 195 238 L 203 230 L 210 230" fill="none" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="142" y="254" fill="#FBBF24" font-size="10" font-family="Inter, sans-serif">Rückholfeder</text>
+                        </g>
+                    </svg>
+
+                    <!-- Info-Box unter dem SVG für das ausgewählte Bauteil -->
+                    <div id="part-info-box" class="mt-3 p-3.5 rounded-xl bg-slate-800/90 flex items-start gap-3 transition-all shadow-inner">
+                        <span class="px-2 py-0.5 rounded bg-transparent text-orange-400 text-xs font-bold mt-0.5" id="part-badge">PRINZIP</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white" id="part-title">Reibung wandelt Energie um</h4>
+                            <p class="text-xs sm:text-sm text-slate-300 mt-0.5" id="part-desc">Der Bremsklotz wird direkt an die Radlauffläche gepresst. Bewegungsenergie wird durch Reibung in Wärme umgewandelt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rechte Spalte: Kompakte Fakten & Bauteile -->
+                <div class="lg:col-span-5 space-y-3.5">
+                    <div class="p-4 rounded-2xl bg-slate-900/80 shadow-lg">
+                        <h3 class="text-sm font-semibold text-orange-400 tracking-wider mb-2">Bauteile (anklickbar)</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button data-select-part="klotz" class="part-btn text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-xs sm:text-sm text-slate-200 transition flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500 shrink-0"></span> Bremsklotz
+                            </button>
+                            <button data-select-part="halter" class="part-btn text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-xs sm:text-sm text-slate-200 transition flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-slate-400 shrink-0"></span> Bremsschuh
+                            </button>
+                            <button data-select-part="zylinder" class="part-btn text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-xs sm:text-sm text-slate-200 transition flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-sky-400 shrink-0"></span> Gestänge &amp; Zylinder
+                            </button>
+                            <button data-select-part="feder" class="part-btn text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-xs sm:text-sm text-slate-200 transition flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span> Rückholfeder
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-900/80 shadow-lg">
+                        <h3 class="text-sm font-semibold text-slate-300 tracking-wider mb-1.5">Ort der Anbringung</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Direkt am Drehgestell bzw. Fahrwerk. Die Bremsklätze wirken unmittelbar auf die <strong class="text-white">äußere Radlauffläche</strong>.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-900/80 shadow-lg">
+                        <h3 class="text-sm font-semibold text-slate-300 tracking-wider mb-2">Typische Fahrzeuge</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-transparent text-slate-200 text-xs font-medium">Eisenbahn-Güterwagen</span>
+                            <span class="px-3 py-1 rounded-lg bg-transparent text-slate-200 text-xs font-medium">Ältere Reisezugwagen</span>
+                            <span class="px-3 py-1 rounded-lg bg-transparent text-slate-200 text-xs font-medium">Straßenbahnen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- FOLIE 3: EINSATZZWECK                                     -->
+        <!-- ========================================================= -->
+        <section class="slide slide-scroll overflow-y-auto py-4" data-slide="3">
+            <div class="mb-8">
+                <span class="text-xs font-semibold tracking-widest text-orange-400">Anwendung im Betrieb</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white mt-1">Einsatzzweck der Klotzbremse</h2>
+                <p class="text-slate-400 mt-2 text-base sm:text-lg max-w-2xl">
+                    Drei zentrale Aufgaben sorgen für Sicherheit und Kontrolle im Schienenverkehr.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Karte 1: Betriebsbremsung -->
+                <div class="group p-6 sm:p-7 rounded-2xl bg-slate-900/90 hover:bg-slate-800/80 transition-all shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-semibold tracking-wider text-sky-400">Alltag</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">Betriebsbremsung</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Reguläres, kontrolliertes Verzögern der Geschwindigkeit im Fahrbetrieb, z. B. vor Langsamfahrstellen, Signalen oder beim Einfahren in Bahnhöfe.
+                        </p>
+                    </div>
+                    <!--div class="mt-6 pt-4 text-xs text-slate-400">
+                        Dosierbarer Bremsdruck über Druckluftleitung
+                    </div-->
+                </div>
+
+                <!-- Karte 2: Schnell- & Notbremsung -->
+                <div class="group p-6 sm:p-7 rounded-2xl bg-slate-900/90 hover:bg-slate-800/80 transition-all shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-red-500/15 text-red-400 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-semibold tracking-wider text-red-400">Gefahrenfall</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">Schnell- &amp; Notbremsung</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Sofortiger Aufbau des maximalen Anpressdrucks im Gefahrenfall, um den Zug auf kürzestmöglichem Bremsweg zum Stillstand zu bringen.
+                        </p>
+                    </div>
+                    <!-- div class="mt-6 pt-4 text-xs text-slate-400">
+                        Schlagartige Entlüftung der Hauptluftleitung
+                    </div-->
+                </div>
+
+                <!-- Karte 3: Feststellbremse -->
+                <div class="group p-6 sm:p-7 rounded-2xl bg-slate-900/90 hover:bg-slate-800/80 transition-all shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-semibold tracking-wider text-amber-400">Stillstand</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">Feststellbremse</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Mechanische Sicherung abgestellter Waggons gegen unbeabsichtigtes Wegrollen, selbst wenn die Druckluft nach längerer Standzeit entweicht.
+                        </p>
+                    </div>
+                    <!--div class="mt-6 pt-4 text-xs text-slate-400">
+                        Betätigung per Handrad / Spindel oder Federspeicher
+                    </div-->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- FOLIE 4: VERSCHIEDENE AUSFÜHRUNGEN (SOHLEN-MATERIALIEN)   -->
+        <!-- ========================================================= -->
+        <section class="slide slide-scroll overflow-y-auto py-4" data-slide="4">
+            <div class="mb-7">
+                <span class="text-xs font-semibold tracking-widest text-orange-400">Materialentwicklung</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white mt-1">Ausführungen: Die Bremsklotz</h2>
+                <p class="text-slate-400 mt-2 text-base sm:text-lg">
+                    Vom lauten Grauguss-Klassiker zu modernen, flüsterleisen Verbundwerkstoffen.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Grauguss (GG) -->
+                <div class="p-6 rounded-2xl bg-slate-900/90 flex flex-col justify-between relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-slate-500"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class=" rounded-lg bg-transparent text-slate-300 font-mono text-sm font-bold">GG-Sohle</span>
+                            <!--span class="text-xs text-slate-400">Klassiker</span-->
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Grauguss-Sohlen</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-5">
+                            Traditionelle Guss-Klötze. Beim Bremsen rauen sie die Radlauffläche mikroskopisch auf. Das sorgt für gute Reibung, verursacht aber extremen Roll- und Bremslärm.
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-4 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Lautstärke:</span>
+                            <span class="text-red-400 font-semibold">Sehr laut (Quietscht)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Radverschleiß:</span>
+                            <span class="text-orange-400 font-semibold">Hoch (raut Rad auf)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- K-Sohlen -->
+                <div class="p-6 rounded-2xl bg-slate-900/90 flex flex-col justify-between relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-sky-500"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class=" rounded-lg bg-transparent text-sky-300 font-mono text-sm font-bold">K-Sohle</span>
+                            <!--span class="text-xs text-sky-400">Neubau</span-->
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Komposit-Sohlen</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-5">
+                            Bestehen aus modernen Kunststoff-Verbundwerkstoffen. Sie halten die Radlauffläche glatt und halbieren den wahrgenommenen Lärm („Flüsterbremse“).
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-4 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Lautstärke:</span>
+                            <span class="text-emerald-400 font-semibold">Deutlich leiser (-10 dB)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Besonderheit:</span>
+                            <span class="text-slate-200 font-medium">Erfordert Bremsumbau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LL-Sohlen -->
+                <div class="p-6 rounded-2xl bg-slate-900/95 flex flex-col justify-between relative overflow-hidden shadow-2xl shadow-orange-950/30">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-red-500 to-orange-400"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="rounded-lg bg-transparent text-orange-300 font-mono text-sm font-bold">LL-Sohle</span>
+                            <!--span class="text-xs text-orange-400 font-medium">Standard heute</span-->
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Low Noise / Low Friction</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-5">
+                            Speziell abgestimmter Verbundwerkstoff mit gleichem Reibwert wie Grauguss. Ermöglicht einen direkten <strong class="text-white">1:1-Austausch</strong> bei Bestandszügen ohne teuren Umbau.
+                        </p>
+                    </div>
+                    <div class="space-y-2 pt-4 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Lautstärke:</span>
+                            <span class="text-emerald-400 font-semibold">Leise (Lärmschutz)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Umrüstung:</span>
+                            <span class="text-orange-300 font-semibold">1:1 ohne Umbau möglich</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- FOLIE 5: VOR- UND NACHTEILE VS. SCHEIBENBREMSE            -->
+        <!-- ========================================================= -->
+        <section class="slide slide-scroll overflow-y-auto py-4" data-slide="5">
+            <div class="mb-7">
+                <span class="text-xs font-semibold tracking-widest text-orange-400">Bewertung</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white mt-1">Vor- &amp; Nachteile</h2>
+                <p class="text-slate-400 mt-2 text-base sm:text-lg">
+                    Im direkten Vergleich zur modernen Scheibenbremse.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Vorteile -->
+                <div class="p-6 sm:p-7 rounded-2xl bg-emerald-950/25 shadow-xl">
+                    <div class="flex items-center gap-3 mb-5">
+                        <!--div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                            +
+                        </div-->
+                        <h3 class="text-xl sm:text-2xl font-bold text-emerald-300">Vorteile</h3>
+                    </div>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <!--span class="mt-1 w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs shrink-0">✓</span-->
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Einfacher &amp; robuster Aufbau</h4>
+                                <p class="text-sm text-slate-300 mt-0.5">Kostengünstig in der Herstellung, unempfindlich und leicht zu warten.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <!--span class="mt-1 w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs shrink-0">✓</span-->
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Selbstreinigende Radlauffläche</h4>
+                                <p class="text-sm text-slate-300 mt-0.5">Die Sohlen streifen Schmutz, Schnee, Eis und Flugrost direkt vom Rad ab.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <!--span class="mt-1 w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs shrink-0">✓</span-->
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Einfache Nachrüstung (LL-Sohlen)</h4>
+                                <p class="text-sm text-slate-300 mt-0.5">Bestehende Güterwagen lassen sich unkompliziert auf leise Sohlen umstellen.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Nachteile -->
+                <div class="p-6 sm:p-7 rounded-2xl bg-red-950/25 shadow-xl">
+                    <div class="flex items-center gap-3 mb-5">
+                        <!--div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center font-bold text-lg">
+                            −
+                        </div-->
+                        <h3 class="text-xl sm:text-2xl font-bold text-red-300">Nachteile</h3>
+                    </div>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <!--span class="mt-1 w-5 h-5 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xs shrink-0">✕</span-->
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Höherer Verschleiß an Klotz &amp; Rad</h4>
+                                <p class="text-sm text-slate-300 mt-0.5">Nicht nur der Klotz, sondern auch das teure Eisenbahnrad nutzt sich stärker ab.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <!--span class="mt-1 w-5 h-5 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xs shrink-0">✕</span-->
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Hohe Lärmentwicklung bei Grauguss</h4>
+                                <p class="text-sm text-slate-300 mt-0.5">Aufgeraute Radreifen verursachen laute Rollgeräusche entlang von Bahnstrecken.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <!--span class="mt-1 w-5 h-5 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xs shrink-0">✕</span-->
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Thermische Belastung des Rades</h4>
+                                <p class="text-sm text-slate-300 mt-0.5">Bei langen Talfahrten erhitzt sich die Radlauffläche stark (Spannungsrisse möglich).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- FOLIE 6: ABSCHLUSSFOLIE                                   -->
+        <!-- ========================================================= -->
+        <section class="slide slide-scroll overflow-y-auto py-4" data-slide="6">
+            <div class="max-w-4xl mx-auto w-full text-center">
+                <span class="text-xs font-semibold tracking-widest text-orange-400">Fazit &amp; Abschluss</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white mt-2 mb-8">Auf einen Blick</h2>
+
+                <!-- 3 Kernpunkte -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mb-10">
+                    <div class="p-5 rounded-2xl bg-slate-900/90 shadow-lg">
+                        <div class="text-orange-400 font-bold text-lg mb-1">Prinzip</div>
+                        <p class="text-sm text-slate-300">Direkte Reibung an der Radlauffläche wandelt Bewegungsenergie zuverlässig in Wärme um.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/90 shadow-lg">
+                        <div class="text-orange-400 font-bold text-lg mb-1">Wandel</div>
+                        <p class="text-sm text-slate-300">Moderne K- und LL-Verbundsohlen ersetzen lauten Grauguss und sorgen für Lärmschutz.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/90 shadow-lg">
+                        <div class="text-orange-400 font-bold text-lg mb-1">Bedeutung</div>
+                        <p class="text-sm text-slate-300">Durch ihre Robustheit bleibt sie im Schienengüterverkehr unverzichtbar.</p>
+                    </div>
+                </div>
+
+                <!-- Dankesbotschaft -->
+                <div class="p-8 rounded-3xl bg-transparent from-slate-900 to-slate-800/90 shadow-2xl">
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">
+                        Vielen Dank für eure Aufmerksamkeit!
+                    </h3>
+                    <p class="text-lg sm:text-xl text-orange-400 font-medium mb-6">
+                        Gibt es noch Fragen?
+                    </p>
+                    <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-slate-950/70 text-sm text-slate-300">
+                        <span>Florian</span>
+                        <span class="text-slate-600">•</span>
+                        <span>Tobias</span>
+                        <span class="text-slate-600">•</span>
+                        <span>Ivan</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom-Navigation & Fortschrittsleiste -->
+    <footer class="w-full z-20 bg-slate-950/85 backdrop-blur-md">
+        <!-- Fortschrittsbalken -->
+        <div class="w-full h-1 bg-slate-800">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-red-500 to-orange-400 transition-all duration-300" style="width: 16.66%;"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 sm:px-12 py-3.5 flex items-center justify-between">
+            <!-- Folienzähler & Punkte -->
+            <div class="flex items-center gap-4">
+                <span id="slide-counter" class="text-sm font-mono font-semibold text-slate-300">1 / 6</span>
+                <div id="slide-dots" class="hidden sm:flex items-center gap-2">
+                    <!-- Dots werden per JS erzeugt -->
+                </div>
+            </div>
+
+            <!-- Steuerungshinweis & Buttons -->
+            <div class="flex items-center gap-3">
+                <span class="hidden md:inline text-xs text-slate-500 mr-2"></span>
+                <button id="prev-btn" aria-label="Vorherige Folie" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:pointer-events-none text-slate-200 text-sm font-medium transition flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Zurück</span>
+                </button>
+                <button id="next-btn" aria-label="Nächste Folie" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 disabled:opacity-40 disabled:pointer-events-none text-white text-sm font-semibold transition flex items-center gap-1.5 shadow-lg shadow-orange-600/20">
+                    <span>Weiter</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            const progressBar = document.getElementById('progress-bar');
+            const slideDotsContainer = document.getElementById('slide-dots');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+            // Navigations-Punkte erstellen
+            slides.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = 'w-2.5 h-2.5 rounded-full transition-all bg-slate-700 hover:bg-slate-500';
+                dot.setAttribute('aria-label', `Gehe zu Folie ${idx + 1}`);
+                dot.addEventListener('click', () => goToSlide(idx));
+                slideDotsContainer.appendChild(dot);
+            });
+
+            const dots = Array.from(slideDotsContainer.children);
+
+            function updateUI() {
+                slides.forEach((slide, idx) => {
+                    if (idx === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                dots.forEach((dot, idx) => {
+                    if (idx === currentSlide) {
+                        dot.className = 'w-6 h-2.5 rounded-full transition-all bg-orange-500';
+                    } else {
+                        dot.className = 'w-2.5 h-2.5 rounded-full transition-all bg-slate-700 hover:bg-slate-500';
+                    }
+                });
+
+                slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+                progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+            }
+
+            function goToSlide(index) {
+                if (index >= 0 && index < totalSlides) {
+                    currentSlide = index;
+                    updateUI();
+                }
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateUI();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateUI();
+                }
+            }
+
+            // Button-Events
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            // Tastatur-Steuerung
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    prevSlide();
+                } else if (e.key.toLowerCase() === 'f') {
+                    toggleFullscreen();
+                }
+            });
+
+            // Touch-Swipe Unterstützung für Tablets/Smartphones
+            let touchStartX = 0;
+            document.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                }
+            }, { passive: true });
+
+            // Vollbild-Modus
+            function toggleFullscreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen().catch(() => {});
+                    }
+                }
+            }
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', toggleFullscreen);
+            }
+
+            // =========================================================
+            // Interaktive SVG-Bauteile auf Folie 2
+            // =========================================================
+            const partDetails = {
+                klotz: {
+                    badge: 'REIBELEMENT',
+                    title: 'Bremsklotz / Bremssohle',
+                    desc: 'Das eigentliche Verschleißteil (aus Grauguss oder Verbundwerkstoff). Es wird gegen die Radlauffläche gedrückt und erzeugt die Bremsreibung.'
+                },
+                halter: {
+                    badge: 'BEFESTIGUNG',
+                    title: 'Bremsschuh',
+                    desc: 'Nimmt den Bremsklotz formschlüssig auf und ermöglicht einen schnellen Austausch verschlissener Sohlen bei der Wartung.'
+                },
+                zylinder: {
+                    badge: 'KRAFTÜBERTRAGUNG',
+                    title: 'Bremszylinder & Gestänge',
+                    desc: 'Druckluft schiebt den Kolben im Bremszylinder vor. Das Bremsgestänge verstärkt diese Kraft und drückt den Klotz ans Rad.'
+                },
+                feder: {
+                    badge: 'LÖSEMECHANISMUS',
+                    title: 'Rückholfeder',
+                    desc: 'Sobald der Bremsdruck abgebaut wird, zieht die Feder den Bremsklotz wieder sauber von der Radlauffläche weg, damit das Rad frei rollt.'
+                }
+            };
+
+            const svgParts = document.querySelectorAll('.svg-part');
+            const partBtns = document.querySelectorAll('.part-btn');
+            const partBadge = document.getElementById('part-badge');
+            const partTitle = document.getElementById('part-title');
+            const partDesc = document.getElementById('part-desc');
+
+            function highlightPart(partKey) {
+                const info = partDetails[partKey];
+                if (!info) return;
+
+                svgParts.forEach(el => {
+                    el.classList.toggle('highlighted', el.dataset.part === partKey);
+                });
+
+                partBtns.forEach(btn => {
+                    if (btn.dataset.selectPart === partKey) {
+                        btn.classList.add('bg-slate-700', 'text-white', 'shadow-md');
+                        btn.classList.remove('bg-slate-800/80', 'text-slate-200');
+                    } else {
+                        btn.classList.remove('bg-slate-700', 'text-white', 'shadow-md');
+                        btn.classList.add('bg-slate-800/80', 'text-slate-200');
+                    }
+                });
+
+                partBadge.textContent = info.badge;
+                partTitle.textContent = info.title;
+                partDesc.textContent = info.desc;
+            }
+
+            svgParts.forEach(el => {
+                el.addEventListener('mouseenter', () => highlightPart(el.dataset.part));
+                el.addEventListener('click', () => highlightPart(el.dataset.part));
+            });
+
+            partBtns.forEach(btn => {
+                btn.addEventListener('click', () => highlightPart(btn.dataset.selectPart));
+            });
+
+            // Toggle für Bremsanimation (Anpressen / Lösen)
+            const toggleBrakeBtn = document.getElementById('toggle-brake-btn');
+            const frictionEffects = document.getElementById('friction-effects');
+            const movingParts = document.querySelectorAll('[data-part="klotz"], [data-part="halter"]');
+            let brakeEngaged = true;
+
+            if (toggleBrakeBtn) {
+                toggleBrakeBtn.addEventListener('click', () => {
+                    brakeEngaged = !brakeEngaged;
+                    if (brakeEngaged) {
+                        toggleBrakeBtn.textContent = 'Bremsvorgang aktiv';
+                        toggleBrakeBtn.className = 'text-xs px-3 py-1 rounded-lg bg-orange-500/20 hover:bg-orange-500/30 text-orange-300 transition font-medium';
+                        frictionEffects.style.display = 'block';
+                        movingParts.forEach(p => p.style.transform = 'translateX(0px)');
+                    } else {
+                        toggleBrakeBtn.textContent = 'Bremse gelöst';
+                        toggleBrakeBtn.className = 'text-xs px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition font-medium';
+                        frictionEffects.style.display = 'none';
+                        movingParts.forEach(p => p.style.transform = 'translateX(-10px)');
+                    }
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+</body>
+</html>
