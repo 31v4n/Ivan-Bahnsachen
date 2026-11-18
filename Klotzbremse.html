@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Klotzbremse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#050811;--tx:#F8FAFC;--mu:#94A3B8;--red:#ef4444;--or:#fb923c;--am:#fcd34d;--sky:#38bdf8;--gr:#34d399;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border:0;outline:0}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+canvas{display:block}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.glow{position:fixed;width:60vmax;height:60vmax;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;transition:background 1.2s}
+#g1{top:-30vmax;right:-25vmax}#g2{bottom:-30vmax;left:-25vmax}
+#brake{position:fixed;z-index:5;pointer-events:none;right:3vw;top:50%;transform:translateY(-50%);width:40vw;height:44vh}
+#stage{position:relative;height:100%;perspective:1600px;overflow:hidden;z-index:10}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:safe center;gap:1.3rem;padding:2rem 46vw 2rem 6vw;overflow-y:auto;scrollbar-width:none;opacity:0;visibility:hidden;pointer-events:none;transform-style:preserve-3d;will-change:transform,opacity,clip-path,filter}
+.slide::-webkit-scrollbar{display:none}
+.slide.active{opacity:1;visibility:visible}
+.slide.out {visibility: visible;opacity: 1;}
+@keyframes flyOut{to{opacity:0;transform:translate3d(-14vw,0,420px) rotateY(22deg) scale(1.22);filter:blur(14px)}}
+@keyframes flyIn{from{opacity:0;transform:translate3d(18vw,0,-680px) rotateY(-28deg) scale(.75);filter:blur(16px)}}
+@keyframes bladeOut{to{opacity:0;clip-path:polygon(0 0,0 0,0 100%,0 100%);transform:translate3d(-6vw,-4vh,-260px) rotateX(14deg)}}
+@keyframes bladeIn{from{opacity:0;clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);transform:translate3d(8vw,4vh,220px) rotateX(-12deg)}}
+@keyframes irisOut{to{opacity:0;clip-path:circle(0% at 50% 50%);transform:scale(.82) rotateZ(-4deg);filter:blur(10px)}}
+@keyframes irisIn{from{opacity:0;clip-path:circle(0% at 50% 50%);transform:scale(1.24) rotateZ(4deg);filter:blur(12px)}}
+.r{opacity:0;transform:translate3d(0,34px,-60px) rotateX(-10deg);filter:blur(6px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .95s cubic-bezier(.16,1,.3,1),filter .8s;transition-delay:var(--d,0s)}
+.active .r{opacity:1;transform:none;filter:none}
+.m{display:block;overflow:hidden;padding-bottom:.12em}
+.m>span{display:inline-block;transform:translateY(115%) skewY(3deg);transition:transform .95s cubic-bezier(.16,1,.3,1) var(--d,.1s)}
+.active .m>span{transform:none}
+h1,h2{font-weight:900;letter-spacing:-.03em;line-height:1.02}
+h1{font-size:clamp(2.6rem,12vw,4.6rem)}
+h2{font-size:clamp(1.9rem,4.4vw,3.4rem)}
+.g{background:linear-gradient(90deg,var(--red),var(--or),var(--am));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(1.05rem,2vw,1.6rem);font-weight:400;color:#cbd5e1;line-height:1.35}
+.names{display:flex;gap:.6rem;flex-wrap:wrap}
+.names span{padding:.5rem 1.1rem;border-radius:2rem;font-weight:600;background:rgba(17,25,44,.8);box-shadow:0 14px 30px -10px #000}
+.eq{display:flex;align-items:center;gap:1rem;font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1}
+.eq i{font-style:normal;color:var(--or)}
+sub{font-size:.5em}
+.c{background:linear-gradient(145deg,rgba(17,25,44,.82),rgba(9,14,28,.92));backdrop-filter:blur(16px);border-radius:1.2rem;padding:.9rem 1.1rem;box-shadow:0 24px 50px -15px #000c,inset 0 1px 0 #ffffff0d,inset 4px 0 0 var(--a,transparent)}
+.c b{display:block;font-size:clamp(.95rem,1.5vw,1.2rem);font-weight:800}
+.c small{display:block;margin-top:.2rem;font-size:clamp(.75rem,1.1vw,.95rem);color:var(--mu);line-height:1.35}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.row{display:flex;align-items:center;gap:1.1rem}
+.n{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;min-width:4.6rem;letter-spacing:-.03em;line-height:1;background:linear-gradient(90deg,var(--a),var(--b,var(--am)));-webkit-background-clip:text;background-clip:text;color:transparent}
+.list{list-style:none;display:grid;gap:.55rem}
+.list li{font-size:clamp(.8rem,1.3vw,1.05rem);font-weight:600;line-height:1.3;padding-left:1.4rem;position:relative}
+.pro li::before{content:"✓";position:absolute;left:0;color:var(--gr)}
+.con li::before{content:"✕";position:absolute;left:0;color:var(--red)}
+.pro h3{color:var(--gr)}.con h3{color:var(--red)}
+h3{font-size:clamp(1rem,1.7vw,1.4rem);font-weight:800;margin-bottom:.7rem}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+#bar{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom,0px);height:3px;z-index:30;background:#0f172a}
+#fill{height:100%;width:20%;background:linear-gradient(90deg,var(--red),var(--or),var(--am));transition:width .7s cubic-bezier(.16,1,.3,1)}
+@media(max-width:799px){
+#brake{top:calc(env(safe-area-inset-top,0px) + 6px);left:0;right:0;width:100%;height:26vh;transform:none}
+.slide{padding:calc(28vh + env(safe-area-inset-top,0px) + .5rem) 6vw 1.4rem;gap:.9rem}
+.row{gap:.8rem}.n{min-width:3.6rem}
+}
+@media(prefers-reduced-motion:reduce){.float{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+<canvas id="brake"></canvas>
+
+<main id="stage">
+  <section class="slide active">
+    <h1 class="m"><span class="g">Klotzbremse</span></h1>
+    <p class="sub r" style="--d:.3s">Das heiligs Klötzle</p>
+    <div class="names r" style="--d:.5s"><span>Florian</span><span>Tobias</span><span>Ivan</span></div>
+  </section>
+
+  <section class="slide">
+    <h2 class="m"><span>Wirkprinzip</span></h2>
+    <div class="eq r" style="--d:.2s"><span>E<sub>kin</sub></span><i>→</i><span class="g">Wärme</span></div>
+    <div class="g2">
+      <div class="c r" style="--d:.3s;--a:var(--red)"><b>Bremsklotz</b><small>Reibt direkt am Rad</small></div>
+      <div class="c r" style="--d:.4s;--a:#94a3b8"><b>Sohlenhalter</b><small>Führt, schnell tauschbar</small></div>
+      <div class="c r" style="--d:.5s;--a:var(--sky)"><b>Gestänge &amp; Zylinder</b><small>Verstärkt die Druckluftkraft</small></div>
+      <div class="c r" style="--d:.6s;--a:var(--am)"><b>Rückholfeder</b><small>Löst den Klotz vom Rad</small></div>
+    </div>
+    <p class="sub r" style="--d:.7s;font-size:clamp(.85rem,1.4vw,1.1rem)">Am Drehgestell von Güterwagen und älteren Reisezugwagen.</p>
+  </section>
+
+  <section class="slide">
+    <h2 class="m"><span>Einsatz</span></h2>
+    <div class="c row r float" style="--d:.2s;--a:var(--sky)"><div><b>Betriebsbremsung</b><small>Fein dosierbar, schont Ladung, Kupplungen und Räder</small></div></div>
+    <div class="c row r float" style="--d:.35s;--a:var(--red);animation-delay:1.2s"><div><b>Notbremsung</b><small>Hauptluftleitung entlüftet, sofort maximaler Anpressdruck</small></div></div>
+    <div class="c row r float" style="--d:.5s;--a:var(--am);animation-delay:2.4s"><div><b>Feststellbremse</b><small>Rein mechanisch, hält auch ohne Druckluft</small></div></div>
+  </section>
+
+  <section class="slide">
+    <h2 class="m"><span>Bremssohlen</span></h2>
+    <div class="c row r" style="--d:.2s;--a:var(--red);--b:var(--or)"><span class="n">92 dB</span><div><b>Grauguss (GG)</b><small>Raut das Rad auf, sehr laut</small></div></div>
+    <div class="c row r" style="--d:.35s;--a:var(--sky);--b:var(--gr)"><span class="n">−10 dB</span><div><b>K-Sohle</b><small>Glattes Rad, aber Bremsanlage muss angepasst werden</small></div></div>
+    <div class="c row r" style="--d:.5s;--a:var(--gr);--b:var(--am)"><span class="n">1:1</span><div><b>LL-Sohle</b><small>Reibwert wie Grauguss, Tausch ohne Umbau</small></div></div>
+  </section>
+
+  <section class="slide">
+    <h2 class="m"><span>Vor- &amp; Nachteile</span></h2>
+    <div class="g2">
+      <div class="c pro r" style="--d:.2s;--a:var(--gr)"><h3>Pro</h3><ul class="list"><li>Robust und einfach</li><li>Selbstreinigende Lauffläche</li><li>Günstig nachrüstbar</li></ul></div>
+      <div class="c con r" style="--d:.4s;--a:var(--red)"><h3>Contra</h3><ul class="list"><li>Laut bei Grauguss</li><li>Verschleiß an Klotz und Rad</li><li>Hitze bei Talfahrt</li><li>Nässe senkt den Reibwert</li></ul></div>
+    </div>
+  </section>
+</main>
+<div id="bar"><div id="fill"></div></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')],N=slides.length;
+const fill=document.getElementById('fill'),g1=document.getElementById('g1'),g2=document.getElementById('g2');
+const moods=[['rgba(234,88,12,.2)','rgba(220,38,38,.12)'],['rgba(220,38,38,.22)','rgba(249,115,22,.15)'],['rgba(56,189,248,.18)','rgba(249,115,22,.14)'],['rgba(52,211,153,.17)','rgba(56,189,248,.15)'],['rgba(52,211,153,.17)','rgba(220,38,38,.16)']];
+const fx=['fly','blade','iris','fly'];
+let cur=0,busy=false,pulse=0;
+function setMood(i){g1.style.background=moods[i][0];g2.style.background=moods[i][1]}
+setMood(0);
+function go(t){
+  if(busy||t===cur||t<0||t>=N)return;
+  busy=true;
+  const fwd=t>cur,o=slides[cur],n=slides[t],k=fx[(fwd?cur:t)%fx.length];
+  o.classList.remove('active');o.classList.add('out');n.classList.add('active');
+  o.style.animation=fwd?`${k}Out .85s cubic-bezier(.22,1,.36,1) forwards`:`${k}In .85s cubic-bezier(.22,1,.36,1) reverse forwards`;
+  n.style.animation=fwd?`${k}In .95s cubic-bezier(.16,1,.3,1) forwards`:`${k}Out .95s cubic-bezier(.16,1,.3,1) reverse forwards`;
+  pulse=1;burst(fwd?26:18);
+  cur=t;setMood(t);fill.style.width=((t+1)/N*100)+'%';
+  setTimeout(()=>{o.style.animation=n.style.animation='';o.classList.remove('out');busy=false},960);
+}
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();go(cur+1)}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}
+});
+let sx=0,sy=0;
+addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY});
+addEventListener('pointerup',e=>{
+  const dx=e.clientX-sx,dy=e.clientY-sy;
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3)go(dx<0?cur+1:cur-1);
+});
+
+/* Hintergrund + Bremsschema, gemeinsam synchron */
+const bg=document.getElementById('bg'),bx=bg.getContext('2d');
+const bc=document.getElementById('brake'),cx2=bc.getContext('2d');
+function fit(c,x){const d=devicePixelRatio||1,r=c.getBoundingClientRect(),W=Math.round(r.width*d),H=Math.round(r.height*d);
+  if(c.width!==W||c.height!==H){c.width=W;c.height=H}x.setTransform(d,0,0,d,0,0);return[r.width,r.height]}
+const streaks=Array.from({length:46},()=>({x:Math.random(),y:Math.random(),l:40+Math.random()*180,v:.002+Math.random()*.006,a:.04+Math.random()*.1}));
+const sparks=[];let t=0,rot=0,B=0,cs={w:300,h:200,r:60,x:200,y:100};
+function burst(n){const{x,y,r}=cs;for(let i=0;i<n;i++)sparks.push({x:x-r,y:y+(Math.random()-.5)*r*.7,vx:-1.2-Math.random()*3.6,vy:(Math.random()-.4)*3,l:1})}
+function frame(){
+  t+=.016;pulse*=.965;
+  B=Math.max(0,Math.min(1,(Math.sin(t*.85)+.25)*1.15));B=Math.max(B,pulse);
+  let[w,h]=fit(bg,bx);bx.clearRect(0,0,w,h);
+  for(const s of streaks){
+    s.x-=s.v*(.1+.9*(1-B));if(s.x<-.3){s.x=1.05;s.y=Math.random()}
+    const px=s.x*w,py=s.y*h,L=s.l*(.35+.65*(1-B));
+    bx.strokeStyle=`rgba(148,163,184,${s.a})`;bx.lineWidth=1.2;bx.beginPath();bx.moveTo(px,py);bx.lineTo(px+L,py);bx.stroke();
+  }
+  [w,h]=fit(bc,cx2);const c=cx2;c.clearRect(0,0,w,h);
+  const cx=w*.66,cy=h*.5,r=Math.min(h*.36,w*.2);cs={w,h,x:cx,y:cy,r};
+  rot+=.05*(1-B*.6);
+  c.fillStyle='#1E293B';c.fillRect(w*.04,cy+r+5,w*.92,7);
+  c.save();c.translate(cx,cy);c.rotate(rot);
+  c.beginPath();c.arc(0,0,r+5,0,7);c.fillStyle='#1E293B';c.fill();
+  c.beginPath();c.arc(0,0,r,0,7);c.fillStyle='#64748B';c.fill();
+  c.beginPath();c.arc(0,0,r*.72,0,7);c.fillStyle='#0b1222';c.fill();
+  for(let i=0;i<6;i++){const a=i*Math.PI/3;c.beginPath();c.moveTo(0,0);c.lineTo(Math.cos(a)*r*.72,Math.sin(a)*r*.72);c.strokeStyle='#334155';c.lineWidth=r*.08;c.stroke()}
+  c.beginPath();c.arc(0,0,r*.2,0,7);c.fillStyle='#94A3B8';c.fill();c.restore();
+  const gap=r*.28*(1-B),sx0=cx-r-gap;
+  if(B>.3){const ga=(B-.3)*1.2,g=c.createRadialGradient(sx0,cy,2,sx0,cy,r*.7);
+    g.addColorStop(0,`rgba(239,68,68,${ga*.9})`);g.addColorStop(.5,`rgba(249,115,22,${ga*.45})`);g.addColorStop(1,'rgba(249,115,22,0)');
+    c.fillStyle=g;c.beginPath();c.arc(sx0,cy,r*.7,0,7);c.fill()}
+  const cyX=w*.04,cyW=w*.16,cyH=r*.55;
+  c.fillStyle='#1E293B';c.beginPath();c.roundRect(cyX,cy-cyH/2,cyW,cyH,8);c.fill();
+  c.fillStyle='rgba(56,189,248,.55)';c.beginPath();c.roundRect(cyX+4,cy-cyH/2+4,(cyW-8)*(.25+.75*B),cyH-8,5);c.fill();
+  const hx=sx0-r*.4;
+  c.fillStyle='#94A3B8';c.fillRect(cyX+cyW,cy-3,hx-cyX-cyW,6);
+  c.fillStyle='#64748B';c.beginPath();c.roundRect(hx,cy-r*.46,r*.16,r*.92,4);c.fill();
+  c.fillStyle=B>.7?'#F97316':'#EF4444';c.beginPath();c.roundRect(hx+r*.16,cy-r*.4,sx0-hx-r*.16+1,r*.8,4);c.fill();
+  const s0=cyX+cyW+8,s1=hx-4,sy0=cy+r*.5;
+  c.beginPath();c.moveTo(s0,sy0);for(let i=1;i<=8;i++)c.lineTo(s0+(s1-s0)/8*i,sy0+(i%2?5:-5));
+  c.strokeStyle='#F59E0B';c.lineWidth=2.2;c.stroke();
+  if(B>.6&&Math.random()>.3)sparks.push({x:sx0,y:cy+(Math.random()-.5)*r*.6,vx:-1.2-Math.random()*3.4,vy:(Math.random()-.4)*2.8,l:1});
+  for(let i=sparks.length-1;i>=0;i--){const p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.1;p.l-=.04;
+    if(p.l<=0){sparks.splice(i,1);continue}
+    c.fillStyle=`rgba(251,191,36,${p.l})`;c.beginPath();c.arc(p.x,p.y,1.8,0,7);c.fill()}
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
