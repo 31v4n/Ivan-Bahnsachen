@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>DB · Rechtsgrundlagen im Bahnbetrieb</title>
+<style>
+:root{
+	--red:#e30613;
+	--red-dark:#b8000b;
+	--ink:#111114;
+	--muted:#66666d;
+	--paper:#fff;
+	--soft:#f4f4f5;
+	--shadow:0 18px 55px rgba(17,17,20,.10);
+}
+*{
+	box-sizing:border-box;
+	user-select:none
+}
+html,body{
+	margin:0;
+	width:100%;
+	height:100%;
+	background:var(--paper);
+	color:var(--ink);
+	font-family:Arial,Helvetica,sans-serif
+}
+body{
+	overflow:hidden
+}
+button{
+	font:inherit
+}
+.grain{
+	position:fixed;
+	inset:0;
+	pointer-events:none;
+	opacity:.025;
+	z-index:20;
+	background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E")
+}
+.top{
+	height:76px;
+	position:fixed;
+	z-index:30;
+	left:0;
+	right:0;
+	top:0;
+	padding:0 4.5vw;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	background:rgba(255,255,255,.92);
+	box-shadow:0 8px 28px rgba(0,0,0,.055);
+	backdrop-filter:blur(16px)
+}
+.brand{
+	display:flex;
+	align-items:center;
+	gap:18px;
+	font-size:clamp(15px,1.3vw,22px);
+	font-weight:800;
+}
+.db{
+	display:inline-grid;
+	place-items:center;
+	background:var(--red);
+	color:#fff;
+	font-weight:900;
+	font-size:22px;
+	padding:8px 12px;
+	border-radius:8px;
+	box-shadow:0 8px 20px rgba(227,6,19,.24)
+}
+.topnote{
+	font-weight: 700;
+	font-size:clamp(14px,1vw,28px);
+	color:#777
+}
+.deck{
+	position:fixed;
+	inset:76px 0 82px;
+	overflow:hidden
+}
+.slide{
+	position:absolute;
+	inset:0;
+	overflow:hidden;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	padding:clamp(36px,6vh,76px) 9vw 5vh;
+	opacity:0;
+	visibility:hidden;
+	transform:translateX(7%) scale(.985);
+	transition:opacity .48s ease,transform .7s cubic-bezier(.2,.8,.2,1),visibility .7s;
+	will-change:transform,opacity
+}
+.slide.active{
+	opacity:1;
+	visibility:visible;
+	transform:translateX(0) scale(1)
+}
+.slide.exit-left{
+	transform:translateX(-7%) scale(.985);
+	opacity:0
+}
+.kicker{
+	font-size:clamp(15px,1.35vw,23px);
+	font-weight:900;
+	text-transform:uppercase;
+	letter-spacing:.10em;
+	color:var(--red);
+	margin:0 0 24px
+}
+h1,h2,h3,p{
+	margin-top:0
+}
+h1{
+	font-size:clamp(48px,7.2vw,112px);
+	line-height:.98;
+	letter-spacing:-.065em;
+	font-weight:900;
+	margin:0 0 30px;
+	max-width:1200px
+}
+h2{
+	font-size:clamp(40px,5.4vw,82px);
+	line-height:1.02;
+	letter-spacing:-.055em;
+	font-weight:900;
+	margin:0 0 34px;
+	max-width:1200px
+}
+h3{
+	font-size:clamp(24px,2.5vw,38px);
+	line-height:1.05;
+	letter-spacing:-.035em;
+	margin-bottom:18px
+}
+p{
+	font-size:clamp(21px,2vw,31px);
+	line-height:1.38;
+	max-width:1050px;
+	margin-bottom:20px
+}
+.red{
+	color:var(--red)
+}
+.hero{
+	position:absolute;
+	right:8vw;
+	top:9%;
+	width:clamp(130px,18vw,280px);
+	aspect-ratio:1;
+	display:grid;
+	place-items:center;
+	background:var(--red);
+	color:#fff;
+	border-radius:50%;
+	box-shadow:0 28px 65px rgba(227,6,19,.25);
+	transform:rotate(-8deg);
+}
+.hero b{
+	font-size:clamp(56px,8vw,140px);
+}
+.source,.footer-note{
+	font-size:clamp(15px,1.3vw,20px);
+	line-height:1.4;
+	color:#777;
+	max-width:1100px;
+	margin-top:24px;
+
+}
+a{
+	color:var(--red);
+	font-weight:800;
+	text-decoration:none
+}
+.source a{
+	display:inline-flex;
+	align-items:center;
+	gap:10px;
+	vertical-align:middle;
+	margin:5px 7px 5px 0;
+	padding:12px 16px;
+	border-radius:12px;
+	background:#fff;
+	color:#171719;
+	font-size:clamp(16px,1.25vw,20px);
+	font-weight:800;
+	line-height:1.15;
+	box-shadow:0 7px 22px rgba(17,17,20,.10),0 2px 5px rgba(17,17,20,.05);
+	transition:transform .22s ease,box-shadow .22s ease,color .22s ease,background .22s ease;
+	text-decoration:none;
+	white-space:normal
+}
+.source a::before{
+	content:"➔";
+	display:inline-grid;
+	place-items:center;
+	flex:0 0 28px;
+	height:28px;
+	border-radius:8px;
+	background:var(--red);
+	color:#fff;
+	font-size:17px;
+	font-weight:900;
+	box-shadow:0 4px 10px rgba(227,6,19,.20)
+}
+.source a:hover,.source a:focus-visible{
+	color:var(--red);
+	transform:translateY(-3px);
+	box-shadow:0 13px 28px rgba(17,17,20,.13),0 5px 12px rgba(227,6,19,.08);
+	outline:none
+}
+.source a:active{
+	transform:translateY(0);
+	background:#f8f8f8
+}
+.source{
+	color:#777
+}
+@media(max-width:900px){
+	.source a{
+		padding:10px 12px;
+		margin:5px 5px 5px 0
+}
+}
+.steps{
+	display:grid;
+	grid-template-columns:repeat(4,minmax(0,1fr));
+	gap:22px;
+	margin:10px 0 8px
+}
+.step,.panel,.card,.question{
+	background:#fff;
+	box-shadow:var(--shadow);
+	border-radius:18px
+}
+.step{
+	padding:clamp(22px,2.2vw,34px);
+	min-height:210px;
+	box-shadow:0 12px 35px rgba(17,17,20,.09)
+}
+.step:before{
+	content:"";
+	display:block;
+	width:46px;
+	height:7px;
+	background:var(--red);
+	border-radius:8px;
+	margin-bottom:22px
+}
+.step strong{
+	display:block;
+	font-size:clamp(20px,1.7vw,27px);
+	line-height:1.15;
+	margin-bottom:15px
+}
+.step p{
+	font-size:clamp(17px,1.35vw,22px);
+	line-height:1.35;
+	color:#555;
+	margin:0
+}
+.answer{
+	font-size:clamp(120px,24vw,330px);
+	line-height:.8;
+	letter-spacing:-.09em;
+	font-weight:900;
+	color:var(--red);
+	margin:10px 0 30px;
+	text-shadow:0 14px 35px rgba(227,6,19,.13)
+}
+.answer span{
+	font-size:.24em;
+	letter-spacing:-.04em;
+	color:#111;
+	white-space:nowrap
+}
+.quote{
+	font-size:clamp(24px,2.5vw,38px);
+	font-weight:800;
+	line-height:1.25;
+	max-width:1200px;
+	padding-left:28px;
+	box-shadow:-8px 0 0 var(--red)
+}
+.split{
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	gap:28px
+}
+.panel{
+	padding:clamp(26px,3vw,46px);
+	box-shadow:0 18px 48px rgba(0,0,0,.10)
+}
+.panel p{
+	font-size:clamp(19px,1.65vw,25px);
+	line-height:1.42
+}
+.panel .muted{
+	color:#73737a
+}
+.tag{
+	display:inline-block;
+	color:var(--red);
+	font-size:clamp(14px,1.2vw,18px);
+	font-weight:900;
+	letter-spacing:.12em;
+	text-transform:uppercase;
+	margin-bottom:12px
+}
+.questions{
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	gap:26px
+}
+.question{
+	padding:clamp(28px,3.2vw,48px);
+	font-size:clamp(24px,2.5vw,38px);
+	line-height:1.2;
+	font-weight:800;
+	box-shadow:0 18px 48px rgba(0,0,0,.10)
+}
+.question:before{
+	content:"?";
+	display:block;
+	color:var(--red);
+	font-size:clamp(54px,6vw,88px);
+	line-height:1;
+	font-weight:900;
+	margin-bottom:22px
+}
+.grid{
+	display:grid;
+	grid-template-columns:repeat(3,minmax(0,1fr));
+	gap:24px
+}
+.card{
+	padding:clamp(24px,2.5vw,38px);
+	box-shadow:0 15px 40px rgba(0,0,0,.09)
+}
+.card .num{
+	font-size:clamp(21px,2vw,30px);
+	font-weight:900;
+	color:var(--red);
+	margin-bottom:25px
+}
+.card h3{
+	font-size:clamp(25px,2.3vw,35px)
+}
+.card p{
+	font-size:clamp(19px,1.6vw,24px);
+	color:#555
+}
+.controls{
+	position:fixed;
+	z-index:35;
+	left:0;
+	right:0;
+	bottom:0;
+	height:82px;
+	display:flex;
+	align-items:center;
+	gap:22px;
+	padding:0 4.5vw;
+	background:rgba(255,255,255,.94);
+	box-shadow:0 -8px 28px rgba(0,0,0,.06);
+	backdrop-filter:blur(16px)
+}
+.btn{
+	width:54px;
+	height:54px;
+	border:0;
+	border-radius:50%;
+	background:#111;
+	color:#fff;
+	font-size:28px;
+	cursor:pointer;
+	box-shadow:0 8px 18px rgba(0,0,0,.18);
+	transition:transform .2s,background .2s
+}
+.btn:hover{
+	background:var(--red);
+	transform:scale(1.07)
+}
+.bar{
+	height:8px;
+	flex:1;
+	background:#ececee;
+	border-radius:20px;
+	overflow:hidden;
+	box-shadow:inset 0 2px 4px rgba(0,0,0,.07)
+}
+.progress{
+	height:100%;
+	width:12.5%;
+	background:var(--red);
+	border-radius:20px;
+	transition:width .6s cubic-bezier(.2,.8,.2,1);
+	box-shadow:0 0 18px rgba(227,6,19,.35)
+}
+.counter{
+	font-size:16px;
+	font-weight:900;
+	letter-spacing:.08em;
+	white-space:nowrap;
+	font-variant-numeric:tabular-nums
+}
+.hint{
+	position:fixed;
+	bottom:94px;
+	right:4.5vw;
+	font-size:13px;
+	color:#777;
+	letter-spacing:.04em;
+	z-index:25
+}
+.flash{
+	position:fixed;
+	z-index:24;
+	inset:0;
+	pointer-events:none;
+	background:var(--red);
+	opacity:0;
+	transform:scaleX(0);
+	transform-origin:left
+}
+.flash.go{
+	animation:flashwipe .48s cubic-bezier(.7,0,.2,1)
+}
+.reveal{
+	opacity:0;
+	transform:translateY(22px);
+	transition:opacity .65s ease,transform .7s cubic-bezier(.2,.8,.2,1)
+}
+.active .reveal{
+	opacity:1;
+	transform:translateY(0)
+}
+.active .reveal:nth-child(2){
+	transition-delay:.08s
+}
+.active .reveal:nth-child(3){
+	transition-delay:.16s
+}
+.active .reveal:nth-child(4){
+	transition-delay:.24s
+}
+.active .reveal:nth-child(5){
+	transition-delay:.32s
+}
+@keyframes flashwipe{
+	0%{
+		opacity:.18;
+		transform:scaleX(0);
+		transform-origin:left
+}
+	35%{
+		opacity:.12;
+		transform:scaleX(1);
+		transform-origin:left
+}
+	100%{
+		opacity:0;
+		transform:scaleX(1);
+		transform-origin:right
+}
+}
+@media(max-width:900px){
+	.top{
+		height:64px;
+		padding:0 5vw
+}
+	.deck{
+		inset:64px 0 76px
+}
+	.slide{
+		padding:34px 6vw 7vh;
+		justify-content:flex-start
+}
+	.hero{
+		width:100px;
+		right:6vw;
+		top:5%;
+	}
+	.hero b{
+		font-size:46px
+}
+	.steps{
+		grid-template-columns:1fr 1fr
+}
+	.step{
+		min-height:0
+}
+	.split,.questions,.grid{
+		grid-template-columns:1fr
+}
+	.controls{
+		height:76px;
+		padding:0 5vw;
+		gap:12px
+}
+	.btn{
+		width:46px;
+		height:46px
+}
+	.hint{
+		display:none
+}
+	.topnote{
+		font-size:10px
+}
+	.brand{
+		gap:10px
+}
+	.db{
+		font-size:17px;
+		padding:7px 9pxborder-radius: 14px;
+	}
+	h1{
+		font-size:clamp(42px,9vw,74px)
+}
+	h2{
+		font-size:clamp(36px,7.5vw,62px)
+}
+}
+@media(max-height:700px) and (min-width:901px){
+	.slide{
+		padding-top:25px;
+		padding-bottom:25px
+}
+	.kicker{
+		margin-bottom:14px
+}
+	h2{
+		margin-bottom:20px
+}
+	.step{
+		min-height:150px;
+		padding:20px
+}
+	.source,.footer-note{
+		margin-top:12px
+}
+	.hero{
+		width:150px;
+	}
+}
+@media(prefers-reduced-motion:reduce){
+	*,*::before,*::after{
+		animation-duration:.01ms!important;
+		transition-duration:.01ms!important;
+		scroll-behavior:auto!important
+}
+}
+/* Styling für die Buttons (schwebend unten rechts für einfache Daumen-Bedienung) */
+.zoom-controls {
+	display: flex;
+	gap: 10px;
+	z-index: 1000;
+}
+.zoom-btn {
+	width: 48px;
+	/* Mindestgröße 48x48px für gute Touch-Bedienbarkeit */
+	height: 48px;
+	font-size: 24px;
+	font-weight: bold;
+	border: none;
+	border-radius: 50%;
+	background-color: black;
+	color: white;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	touch-action: manipulation;
+	/* Verhindert versehentlichen Doppelklick-Zoom des Browsers */
+}
+.zoom-btn:active {
+	background-color: #0056b3;
+	transform: scale(0.95);
+}
+</style>
+</head>
+<body>
+<div class="grain"></div><div class="flash" id="flash"></div>
+<header class="top">
+	<div class="brand">
+		<span class="db">BT</span>
+		<span>Betriebstheorie (Maas) - Gesetze und Vorschriften zu Bahn und so</span>
+	</div>
+	<div class="zoom-controls">
+		<button class="zoom-btn" onclick="changeZoom(-0.1)" aria-label="Verkleinern">−</button>
+		<button class="zoom-btn" onclick="changeZoom(0.1)" aria-label="Vergrößern">+</button>
+	  </div>
+
+	  <script>
+		let currentZoom = 1.0;
+		const minZoom = 0.7; // Minimal 70%
+		const maxZoom = 1.6; // Maximal 160%
+
+		function changeZoom(step) {
+		  // Neuen Zoom-Wert berechnen und auf eine Nachkommastelle runden
+		  let newZoom = Math.round((currentZoom + step) * 10) / 10;
+
+		  // Grenzen einhalten
+		  if (newZoom >= minZoom && newZoom <= maxZoom) {
+			currentZoom = newZoom;
+			document.body.style.zoom = currentZoom;
+		  }
+		}
+	  </script>
+	<div class="topnote">Liam, Timo, Lars und Ivan</div>
+</header>
+<main class="deck">
+<section class="slide active" data-label="Fall">
+  <div class="hero"><b>?</b></div><div class="kicker reveal">Fallanalyse</div>
+  <h1 class="reveal">Wenn die<br>Zugbeeinflussung<br><span class="red">ausfällt.</span></h1>
+  <p class="reveal">Ein Reisezug fährt und die Zugbeeinflussung des führenden Fahrzeugs ist vorübergehend nicht wirksam. Welche Höchstgeschwindigkeit ergibt sich aus der EBO?</p>
+  <p class="source reveal">Quellen: AEG und EBO</p>
+</section>
+<section class="slide" data-label="Suchweg">
+  <div class="kicker reveal">Suchweg</div><h2 class="reveal">Vom Stichwort zur<br><span class="red">konkreten Regel.</span></h2>
+  <div class="steps">
+    <div class="step reveal"><strong>Inhaltsübersicht</strong><p>In der EBO nach Bahnbetrieb und Geschwindigkeit suchen.</p></div>
+    <div class="step reveal"><strong>Abschnitt IV</strong><p>„Bahnbetrieb“ wählen: Hier stehen Regeln für Züge im Betrieb.</p></div>
+    <div class="step reveal"><strong>§ 40 EBO</strong><p>„Fahrgeschwindigkeit“ direkt zur zulässigen Höchstgeschwindigkeit.</p></div>
+    <div class="step reveal"><strong>Absatz 2 Nr. 1</strong><p>Reisezüge vergleichen und beide Spalten beachten.</p></div>
+  </div>
+  <p class="source reveal">Fundstellen: <a href="https://31v4n.github.io/Ivan-Bahnsachen/Gesetze/EBO/index.html" target="_blank" rel="noreferrer">EBO-Inhaltsübersicht</a> <a href="https://31v4n.github.io/Ivan-Bahnsachen/AEG/__4.html" target="_blank" rel="noreferrer">§ 40 EBO</a></p>
+</section>
+<section class="slide" data-label="Antwort">
+  <div class="kicker reveal">Ergebnis</div><h2 class="reveal">Die Höchstgeschwindigkeit</h2>
+  <div class="answer reveal">50<span> km/h</span></div>
+  <p class="quote reveal">Ist die Zugbeeinflussung der Strecke oder des führenden Fahrzeugs vorübergehend nicht wirksam, ist für einen Reisezug die zulässige Geschwindigkeit auf 50 km/h begrenzt.</p>
+  <p class="source reveal" style="display:none">In eigenen Worten nach § 40 Abs. 2 Nr. 1 EBO, rechte Spalte für Nebenbahnen; linke Spalte für Hauptbahnen führt bei nicht erfüllten Voraussetzungen ebenfalls zu „sonst 50 km/h“.</p>
+</section>
+<section class="slide" data-label="Spaltenvergleich">
+  <div class="kicker reveal">Hauptbahn oder Nebenbahn?</div><h2 class="reveal">Zwei Spalten.<br><span class="red">Gleiches Ergebnis.</span></h2>
+  <div class="split">
+    <div class="panel reveal"><div class="tag">Linke Spalte</div><h3>Hauptbahnen</h3><p>§ 40 Abs. 2 Nr. 1 nennt 250 km/h bzw. 160 km/h unter bestimmten Voraussetzungen. Andernfalls gilt „sonst 50 km/h“.</p><p class="muted">Die vorübergehend unwirksame Zugbeeinflussung erfüllt die Voraussetzungen für die höheren Geschwindigkeiten nicht.</p></div>
+    <div class="panel reveal"><div class="tag">Rechte Spalte</div><h3>Nebenbahnen</h3><p>Die Regel nennt grundsätzlich 100 km/h bzw. sonst 80 km/h. Ausdrücklich abweichend gilt 50 km/h, wenn die Zugbeeinflussung der Strecke oder des führenden Fahrzeugs vorübergehend nicht wirksam ist.</p></div>
+  </div>
+  <p class="source reveal">Quellen: <a href="https://31v4n.github.io/Ivan-Bahnsachen/Gesetze/EBO/__40.html" target="_blank" rel="noreferrer">§ 40 Abs. 2 Nr. 1 EBO</a></p>
+</section>
+<section class="slide" data-label="AEG-Pflicht">
+  <div class="kicker reveal">Gesetzlicher Hintergrund</div><h2 class="reveal">Die Pflicht dahinter:<br><span class="red">sicher fahren.</span></h2>
+  <div class="panel reveal" style="max-width:1100px"><div class="tag">§ 4 Abs. 3 AEG</div><p>Eisenbahnen und Halter von Eisenbahnfahrzeugen müssen ihren Betrieb sicher führen. Eisenbahnen müssen außerdem die Infrastruktur sicher bauen und in betriebssicherem Zustand halten.</p></div>
+  <p class="source reveal">Fundstelle: <a href="https://31v4n.github.io/Ivan-Bahnsachen/AEG/__4.html" target="_blank" rel="noreferrer">§ 4 Abs. 3 AEG</a>. Die Geschwindigkeitsbegrenzung der EBO konkretisiert die sichere Betriebsführung für diesen Fall.</p>
+</section>
+<section class="slide" data-label="Offene Fragen">
+  <div class="kicker reveal">Was bleibt offen?</div><h2 class="reveal">Zwei Fragen für<br><span class="red">die Fahrdienstvorschrift.</span></h2>
+  <div class="questions">
+    <div class="question reveal">Wie muss der Triebfahrzeugführer den Ausfall der Zugbeeinflussung melden, und wen muss er darüber informieren?</div>
+    <div class="question reveal">Welche betrieblichen Anweisungen oder Zustimmungen sind vor der Weiterfahrt erforderlich, und wie werden sie übermittelt?</div>
+  </div>
+  <p class="footer-note reveal" style="display:none">Diese konkreten Verfahrensfragen beantwortet die hier untersuchte EBO-Stelle nicht. Sie sind in den einschlägigen betrieblichen Regeln, bei DB InfraGO insbesondere in der Ril 408, zu prüfen. Die Ril 408 wurde für diese Recherche nicht ausgewertet.</p>
+</section>
+<section class="slide" data-label="Grenze der Regelwerke">
+  <div class="kicker reveal">Regelwerk-Grenze</div><h2 class="reveal">Was die EBO sagt.<br><span class="red">Was sie offenlässt.</span></h2>
+  <div class="grid">
+    <div class="card reveal"><div class="num">AEG</div><h3>Grundpflicht</h3><p>Der Betrieb muss sicher geführt werden. § 4 Abs. 3 formuliert die übergeordnete Pflicht.</p></div>
+    <div class="card reveal"><div class="num">EBO</div><h3>Grenze</h3><p>§ 40 Abs. 2 Nr. 1 legt für den beschriebenen Fall 50 km/h als zulässige Höchstgeschwindigkeit fest.</p></div>
+    <div class="card reveal"><div class="num">Ril 408</div><h3>Betriebliche Abläufe</h3><p>Zu prüfen wären Meldung, Verständigung, Zustimmung, Dokumentation und konkrete Weiterfahrbedingungen.</p></div>
+  </div>
+  <p class="footer-note reveal" style="display:none">Die Beispiele zur Ril 408 sind offene Prüffragen, keine hier bestätigten Einzelvorschriften. Quelle dieser Präsentation bleiben ausschließlich AEG und EBO.</p>
+</section>
+<section class="slide" data-label="Fazit">
+  <div class="hero"><b>50</b></div><div class="kicker reveal">Kurzfazit</div><h1 class="reveal">50 km/h.<br><span class="red">Beide Bahnarten.</span></h1>
+  <p class="reveal">Suchweg: EBO-Inhaltsübersicht → Abschnitt „Bahnbetrieb“ → § 40 „Fahrgeschwindigkeit“ → Absatz 2 Nr. 1 und Spaltenvergleich.</p>
+  <p class="reveal">Rechtsgrundlage: § 40 Abs. 2 Nr. 1 EBO. Dahinter steht die Pflicht zur sicheren Betriebsführung aus § 4 Abs. 3 AEG.</p>
+  <p class="source reveal">Offizielle Quellen: <a href="https://31v4n.github.io/Ivan-Bahnsachen/Gesetze/EBO/index.html" target="_blank" rel="noreferrer">EBO-Inhaltsübersicht</a> <a href="https://31v4n.github.io/Ivan-Bahnsachen/Gesetze/EBO/__40.html" target="_blank" rel="noreferrer">§ 40 EBO</a> <a href="https://31v4n.github.io/Ivan-Bahnsachen/Gesetze/EBO/__40.html" target="_blank" rel="noreferrer">§ 4 AEG</a></p>
+</section>
+</main>
+<nav class="controls" aria-label="Präsentationssteuerung"><button class="btn" id="prev" aria-label="Vorherige Folie">◄</button><div class="bar"><div class="progress" id="progress"></div></div><div class="counter" id="counter">01 / 08</div><button class="btn" id="next" aria-label="Nächste Folie">►</button></nav>
+<script>
+(()=> {
+ const slides=[...document.querySelectorAll('.slide')],progress=document.querySelector('#progress'),counter=document.querySelector('#counter'),flash=document.querySelector('#flash');
+ let i=0,busy=false;
+ function show(n){
+   n=Math.max(0,Math.min(slides.length-1,n)); if(n===i||busy)return; busy=true;
+   const old=slides[i]; old.classList.remove('active'); old.classList.add('exit-left');
+   i=n; slides.forEach((s,j)=>{if(j!==i)s.classList.remove('active')});
+   slides[i].scrollTop=0; slides[i].classList.remove('exit-left'); slides[i].classList.add('active');
+   progress.style.width=((i+1)/slides.length*100)+'%';
+   counter.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+   flash.classList.remove('go'); void flash.offsetWidth; flash.classList.add('go');
+   setTimeout(()=>{old.classList.remove('exit-left');busy=false},620);
+ }
+ document.querySelector('#prev').onclick=()=>show(i-1);
+ document.querySelector('#next').onclick=()=>show(i+1);
+ document.addEventListener('keydown',e=>{
+   if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(i+1)}
+   if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+   if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);
+   if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}
+ });
+ let x=0;document.addEventListener('touchstart',e=>x=e.changedTouches[0].screenX,{passive:true});
+ document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-x;if(Math.abs(dx)>65)show(i+(dx<0?1:-1))},{passive:true});
+ progress.style.width=(100/slides.length)+'%';
+})();
+</script>
+</body>
+</html>
