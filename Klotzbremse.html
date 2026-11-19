@@ -117,6 +117,31 @@ h3{font-size:clamp(1rem,1.7vw,1.4rem);font-weight:800;margin-bottom:.7rem}
 <div id="bar"><div id="fill"></div></div>
 
 <script>
+(async () => {
+    const enterFullscreen = async () => {
+        if (!document.fullscreenElement) {
+            try {
+                await document.documentElement.requestFullscreen();
+            } catch (e) {
+                console.log("Warte auf Nutzerinteraktion.");
+            }
+        }
+    };
+
+    await enterFullscreen();
+
+    const fallback = async () => {
+        await enterFullscreen();
+        if (document.fullscreenElement) {
+            document.removeEventListener("click", fallback);
+            document.removeEventListener("keydown", fallback);
+        }
+    };
+
+    document.addEventListener("click", fallback);
+    document.addEventListener("keydown", fallback);
+})();
+  
 const slides=[...document.querySelectorAll('.slide')],N=slides.length;
 const fill=document.getElementById('fill'),g1=document.getElementById('g1'),g2=document.getElementById('g2');
 const moods=[['rgba(234,88,12,.2)','rgba(220,38,38,.12)'],['rgba(220,38,38,.22)','rgba(249,115,22,.15)'],['rgba(56,189,248,.18)','rgba(249,115,22,.14)'],['rgba(52,211,153,.17)','rgba(56,189,248,.15)'],['rgba(52,211,153,.17)','rgba(220,38,38,.16)']];
