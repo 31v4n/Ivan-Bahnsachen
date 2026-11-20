@@ -613,7 +613,7 @@ a{
 		  }
 		}
 	  </script>
-	<div class="topnote">Liam, Timo, Lars und Ivan</div>
+	<div class="topnote"><s>Liam,</s>Timo, Lars und Ivan</div>
 </header>
 <main class="deck">
 <section class="slide active" data-label="Fall">
@@ -677,6 +677,32 @@ a{
 </main>
 <nav class="controls" aria-label="Präsentationssteuerung"><button class="btn" id="prev" aria-label="Vorherige Folie">◄</button><div class="bar"><div class="progress" id="progress"></div></div><div class="counter" id="counter">01 / 08</div><button class="btn" id="next" aria-label="Nächste Folie">►</button></nav>
 <script>
+
+	(async () => {
+    const enterFullscreen = async () => {
+        if (!document.fullscreenElement) {
+            try {
+                await document.documentElement.requestFullscreen();
+            } catch (e) {
+                console.log("Warte auf Nutzerinteraktion.");
+            }
+        }
+    };
+
+    await enterFullscreen();
+
+    const fallback = async () => {
+        await enterFullscreen();
+        if (document.fullscreenElement) {
+            document.removeEventListener("click", fallback);
+            document.removeEventListener("keydown", fallback);
+        }
+    };
+
+    document.addEventListener("click", fallback);
+    document.addEventListener("keydown", fallback);
+})();
+	
 (()=> {
  const slides=[...document.querySelectorAll('.slide')],progress=document.querySelector('#progress'),counter=document.querySelector('#counter'),flash=document.querySelector('#flash');
  let i=0,busy=false;
