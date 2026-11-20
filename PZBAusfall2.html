@@ -677,8 +677,7 @@ a{
 </main>
 <nav class="controls" aria-label="Präsentationssteuerung"><button class="btn" id="prev" aria-label="Vorherige Folie">◄</button><div class="bar"><div class="progress" id="progress"></div></div><div class="counter" id="counter">01 / 08</div><button class="btn" id="next" aria-label="Nächste Folie">►</button></nav>
 <script>
-
-	(async () => {
+(async () => {
     const enterFullscreen = async () => {
         if (!document.fullscreenElement) {
             try {
@@ -689,19 +688,38 @@ a{
         }
     };
 
-    await enterFullscreen();
-
     const fallback = async () => {
         await enterFullscreen();
         if (document.fullscreenElement) {
-            document.removeEventListener("click", fallback);
-            document.removeEventListener("keydown", fallback);
+            removeFallbackListeners();
         }
     };
 
-    document.addEventListener("click", fallback);
-    document.addEventListener("keydown", fallback);
+    const addFallbackListeners = () => {
+        document.addEventListener("click", fallback);
+        document.addEventListener("touchend", fallback, { passive: true });
+        document.addEventListener("keydown", fallback);
+    };
+
+    const removeFallbackListeners = () => {
+        document.removeEventListener("click", fallback);
+        document.removeEventListener("touchend", fallback);
+        document.removeEventListener("keydown", fallback);
+    };
+
+    // Immer wenn der Fullscreen extern beendet wird, neu auf Interaktion warten
+    document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement) {
+            addFallbackListeners();
+        } else {
+            removeFallbackListeners();
+        }
+    });
+
+    addFallbackListeners();
+    await enterFullscreen();
 })();
+
 	
 (()=> {
  const slides=[...document.querySelectorAll('.slide')],progress=document.querySelector('#progress'),counter=document.querySelector('#counter'),flash=document.querySelector('#flash');
